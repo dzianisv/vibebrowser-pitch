@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VibeBrowser — Pitch Deck</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/white.min.css" id="theme">
+  <style>
+    :root{--accent:#0a84ff;--muted:#6b6b6b}
+    body{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif}
+    .reveal .slides section {padding: 48px 72px;}
+    h1{font-weight:700;margin:0 0 8px 0}
+    h2{margin:0 0 8px 0;font-weight:600}
+    p, li{color:#222;margin:6px 0;font-size:18px;line-height:1.35}
+    .muted{color:var(--muted);font-size:14px}
+    .accent{color:var(--accent)}
+    .foot{position:absolute;right:24px;bottom:18px;font-size:13px;color:var(--muted)}
+    .cols{display:flex;gap:28px}
+    .col{flex:1}
+    .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;background:#f6f7fb;padding:8px;border-radius:8px}
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>VibeBrowser</h1>
+        <p class="muted">Agentic Browser — Unlike AI chatbots that assist browsing, Vibe is an autonomous web agent that takes full control. Just say "book my flight to NYC" or "find me the cheapest insurance" and watch as it researches, compares, navigates multiple sites, and completes entire workflows—all on its own.</p>
+      </section>
+
+      <section>
+        <h2>About me (short)</h2>
+        <ul>
+          <li>I'm Dzianis Vashchuk. Ex-Coinbase — 3 years.</li>
+          <li>I built LLM+agent tooling at Coinbase to help on-call engineers: integrations with Databricks, Datadog, GitHub, Jira.</li>
+          <li>After experimenting with Claude‑Code + Opus‑4 and seeing how LLMs can drive automation, I decided to focus on browser automation.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>The problem — plain facts</h2>
+        <ul>
+          <li>Browsers are passive: most workflows are manual (search → click → copy → repeat).</li>
+          <li>LLMs reason well but can’t reliably *act* in browser context at scale today.</li>
+          <li>No reliable product executes end‑to‑end browser workflows for real users.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>The product — what VibeBrowser does</h2>
+        <ul>
+          <li>It's an agentic browser: not just suggestions, it executes workflows inside the browser.</li>
+          <li>Target automations: booking, LinkedIn outreach, travel planning, investment research, GitHub PR review, content ops.</li>
+          <li>Delivery: extension (MVP) → component/Chromium build → cloud agent for long jobs.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Architecture / delivery</h2>
+        <div class="cols">
+          <div class="col">
+            <h3>Extension (MVP)</h3>
+            <p>Chromium extension. DOM injection + browser control. Lowest friction for users.</p>
+          </div>
+          <div class="col">
+            <h3>Chromium fork / component</h3>
+            <p>Custom build for deeper context access and background capabilities beyond extension APIs. Hard to convience users to use another browser</p>
+          </div>
+          <div class="col">
+            <h3>Cloud agent</h3>
+            <p>Headless Chromium (Playwright) + LLM orchestration for long-running, reliable automations.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Current status — what exists now</h2>
+        <ul>
+          <li>Extension MVP — functional but I'm still working hard to make it better</li>
+          <li>Chromium fork build — repo and build integration done; component wired in.</li>
+          <li>Cloud agent — architecture designed, prototype next.</li>
+          <li>Team — small, self-funded (me + friends). We're shipping code now.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Technical stack & constraints</h2>
+        <ul>
+          <li>Extension: Chromium extension APIs, content scripts, DOM injection, simulated events.</li>
+          <li>LLM: optimized for GPT‑5‑mini to reduce cost; support for larger models when needed.</li>
+          <li>Cloud: headless Chromium via Playwright, containerized sessions, per-session isolation and audit logs.</li>
+          <li>Workflows: template-driven engine (parameters + retries + observability). Failures are surfaced, not hidden.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Why funding matters — concrete reasons</h2>
+        <ul>
+          <li>We're self-funded, but costs scale predictably: infra + LLM queries are the main recurring burn.</li>
+          <li>Even on GPT‑5‑mini, hundreds of workflows/day → material monthly spend.</li>
+          <li>Capital buys: infra capacity (worker fleet, storage), LLM credits, early user acquisition, 1–2 hires (engineer, infra/ops).</li>
+          <li>Without funding, growth is limited by operational costs, not by product or engineering progress.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Roadmap — realist schedule</h2>
+        <ul>
+          <li>0–3 months: ship extension to early users. Templates: LinkedIn, GitHub PR review, travel booking.</li>
+          <li>3–6 months: iterate templates, improve failure handling, add observability and billing primitives.</li>
+          <li>6–12 months: release Chromium build for power users, more integrations.</li>
+          <li>12–18 months: launch cloud agent for paid automation and enterprise customers.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Why me</h2>
+        <ul>
+          <li>I built LLM/agent tooling at Coinbase integrated with Databricks, Datadog, GitHub, Jira</li>
+          <li>I know how to build reliable automation systems and deal with ops/failure modes.</li>
+          <li>I’m full-time on VibeBrowser and shipping working software today.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ask</h2>
+        <ul>
+          <li>Capital to cover infra & LLM costs while we scale users and validate product-market fit.</li>
+          <li>Advice and introductions on GTM and initial distribution channels.</li>
+          <li>Partnerships with early enterprise users — sales/research/recruiting teams.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Interested?</h2>
+        <ol>
+          <li>info@vibebrowser.app</li>
+          <li>linkedin.com/company/vibebrowser</li>
+          <li>x.com/vibebrowser</li>
+          <li>vibebrowser.app</li>
+        </ol>
+        
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      width: 1200,
+      height: 768,
+      transition: 'fade'
+    });
+  </script>
+</body>
+</html>
