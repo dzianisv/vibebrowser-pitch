@@ -149,12 +149,25 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.js"></script>
   <script>
+    // Enable PDF export by adding ?print-pdf to the URL
+    // e.g., https://pitch.vibebrowser.app/?print-pdf
+    if( window.location.search.match( /print-pdf/gi ) ) {
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/css/print/pdf.min.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+
     Reveal.initialize({
       hash: true,
       slideNumber: true,
       width: 1200,
       height: 768,
-      transition: 'fade'
+      transition: 'fade',
+      // PDF export settings
+      pdfMaxPagesPerSlide: 1,
+      pdfSeparateFragments: false
     });
   </script>
 </body>
