@@ -107,10 +107,11 @@
       <section>
         <h2>Technical stack & constraints</h2>
         <ul>
-          <li>Extension: Chromium extension APIs, content scripts, DOM injection, simulated events.</li>
+          <li>Extension: Chromium extension APIs, content scripts, DOM injection, page control</li>
           <li>LLM: optimized for GPT‑5‑mini to reduce cost; support for larger models when needed.</li>
-          <li>Cloud: headless Chromium via Playwright, containerized sessions, per-session isolation and audit logs.</li>
-          <li>Workflows: template-driven engine (parameters + retries + observability). Failures are surfaced, not hidden.</li>
+          <li>Fallback to openai:compuer-use-preivew, model that is used by ChatGpt Agent. Perfect but expensive model for routine tasks</li>
+          <li>Cloud: headless Chromium via Playwright, containerized sessions, per-session isolation, and audit logs.</li>
+          <li>LangGraph workflows: ReAct architecture with reasoning and reflection layer to avoid getting stuck on the same actions.</li>
         </ul>
       </section>
 
