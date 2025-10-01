@@ -116,8 +116,8 @@
         <h2>Technical stack & constraints</h2>
         <ul>
           <li>Extension: Chromium extension APIs, content scripts, DOM injection, page control</li>
+          <li>Browser control: Proprietary in-house tooling for reliable automation, no reliance on third-party frameworks like browser-use or OpenAI's computer-use-preview.</li>
           <li>LLM: optimized for GPT‑5‑mini to reduce cost; support for larger models when needed.</li>
-          <li>Fallback to openai:compuer-use-preivew, model that is used by ChatGpt Agent. Perfect but expensive model for routine tasks</li>
           <li>Cloud: headless Chromium via Playwright, containerized sessions, per-session isolation, and audit logs.</li>
           <li>LangGraph workflows: ReAct architecture with reasoning and reflection layer to avoid getting stuck on the same actions.</li>
         </ul>
@@ -129,7 +129,7 @@
           <li>I work on the project full-time; my friends contribute from time to time, but they can't leave their full-time jobs.</li>
           <li>To hire them, we need an investment round. This will allow us to scale and develop the Agentic Browser more quickly.</li>
           <li>Even on GPT‑5‑mini, hundreds of workflows/day → material monthly spend.</li>
-          <li>As a smart-fallback when gpt-5-mini doesn't manage to control the browser, we have to switch to openai:computer-use-preview - the most expensive model</li>
+          <li>Custom fallback strategies for browser control challenges, ensuring reliability without external dependencies.</li>
         </ul>
 
         <table style="font-size: 12px; margin-top: 10px;">
