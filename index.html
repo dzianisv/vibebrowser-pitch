@@ -41,8 +41,9 @@
     .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;background:#f6f7fb;padding:8px;border-radius:8px}
     .carousel{position:relative;width:100%;max-width:900px;margin:20px auto;overflow:hidden}
     .carousel-inner{display:flex;transition:transform 0.5s ease-in-out}
-    .carousel-item{min-width:100%;display:flex;justify-content:center;align-items:center}
+    .carousel-item{min-width:100%;display:flex;flex-direction:column;justify-content:center;align-items:center}
     .carousel-item video{width:100%;max-width:800px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+    .carousel-caption{margin-top:12px;font-size:16px;color:#222;font-weight:500;text-align:center}
     .carousel-controls{margin-top:20px;display:flex;justify-content:center;gap:12px}
     .carousel-btn{padding:8px 16px;background:var(--accent);color:white;border:none;border-radius:6px;cursor:pointer;font-size:14px;transition:opacity 0.2s}
     .carousel-btn:hover{opacity:0.85}
@@ -124,33 +125,6 @@
         </ul>
       </section>
 
-      <section>
-        <h2>Demos</h2>
-        <div class="carousel" id="demoCarousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <video controls>
-                <source src="demos/value-investing-market-research.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="carousel-item">
-              <video controls>
-                <source src="demos/google-calendar-demo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-          <div class="carousel-controls">
-            <button class="carousel-btn" onclick="previousSlide()">Previous</button>
-            <button class="carousel-btn" onclick="nextSlide()">Next</button>
-          </div>
-          <div class="carousel-indicators">
-            <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
-            <div class="carousel-indicator" onclick="goToSlide(1)"></div>
-          </div>
-        </div>
-      </section>
 
       <section>
         <h2>Technical stack & constraints</h2>
@@ -271,51 +245,27 @@
       </section>
 
       <section>
-        <h2>Business Plan — 12-month execution</h2>
-        <div style="text-align: left; max-width: 85%;">
-          <h3 style="margin-top: 20px;">Phase 1: Extension + Dashboard (0-6 months)</h3>
-          <ul style="font-size: 16px;">
-            <li><strong>Product:</strong> Release Chrome extension with user dashboard</li>
-            <li><strong>Authentication & Billing:</strong> User login system with subscription management</li>
-            <li><strong>Pricing Model:</strong>
-              <ul>
-                <li>$25/month - GPT-5 powered automation (standard workflows)</li>
-                <li>$100/month - Advanced tier with OpenAI computer-use model for complex cases</li>
-              </ul>
-            </li>
-            <li><strong>Focus:</strong> Polish core automation, improve reliability, template library</li>
-          </ul>
-
-          <h3 style="margin-top: 20px;">Phase 2: Chromium Browser Release (6-12 months)</h3>
-          <ul style="font-size: 16px;">
-            <li><strong>Product:</strong> Custom Chromium browser with native AI agent integration</li>
-            <li><strong>Key Advantages:</strong>
-              <ul>
-                <li>Deep context access: browsing history, stored credentials, session data</li>
-                <li>Native integration beyond extension API limitations</li>
-                <li>Better performance and reliability for complex workflows</li>
-              </ul>
-            </li>
-            <li><strong>Team Focus:</strong> Full-time development with 4-person engineering team</li>
-          </ul>
-
-          <h3 style="margin-top: 20px;">Revenue Model</h3>
-          <ul style="font-size: 16px;">
-            <li>Subscription-based SaaS model with two tiers</li>
-            <li>Target: 1,000 paid users by month 12 → $25k-$100k MRR</li>
-            <li>Enterprise tier (custom pricing) for teams and automation at scale</li>
-          </ul>
+        <h2>Roadmap & Business Plan</h2>
+        <div class="cols">
+          <div class="col">
+            <h3>0–6 months: Extension MVP</h3>
+            <ul style="font-size: 16px;">
+              <li>Release Chrome extension with dashboard</li>
+              <li>User authentication & subscription billing</li>
+              <li>Template library (LinkedIn, GitHub, travel)</li>
+              <li><strong>Pricing:</strong> $25/mo (GPT-5), $100/mo (advanced)</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>6–12 months: Chromium Browser</h3>
+            <ul style="font-size: 16px;">
+              <li>Custom browser with native AI integration</li>
+              <li>Deep context: history, credentials, sessions</li>
+              <li>Better performance & reliability</li>
+              <li><strong>Target:</strong> 1,000 users → $25k-$100k MRR</li>
+            </ul>
+          </div>
         </div>
-      </section>
-
-      <section>
-        <h2>Roadmap — realist schedule</h2>
-        <ul>
-          <li>0–3 months: ship extension to early users. Templates: LinkedIn, GitHub PR review, travel booking.</li>
-          <li>3–6 months: iterate templates, improve failure handling, add observability and billing primitives.</li>
-          <li>6–12 months: release Chromium build for power users, more integrations.</li>
-          <li>12–18 months: launch cloud agent for paid automation and enterprise customers.</li>
-        </ul>
       </section>
 
 
@@ -326,6 +276,36 @@
           <li>Advice and introductions on GTM and initial distribution channels.</li>
           <li>Partnerships with early enterprise users — sales/research/recruiting teams.</li>
         </ul>
+      </section>
+
+      <section>
+        <h2>Demos</h2>
+        <div class="carousel" id="demoCarousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <video controls>
+                <source src="demos/value-investing-market-research.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="carousel-caption">Vibe AI Agent performing Stock Market Research</div>
+            </div>
+            <div class="carousel-item">
+              <video controls>
+                <source src="demos/google-calendar-demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="carousel-caption">Vibe AI Agent performing Gmail Inbox Summarization</div>
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn" onclick="previousSlide()">Previous</button>
+            <button class="carousel-btn" onclick="nextSlide()">Next</button>
+          </div>
+          <div class="carousel-indicators">
+            <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
+            <div class="carousel-indicator" onclick="goToSlide(1)"></div>
+          </div>
+        </div>
       </section>
 
       <section>
