@@ -39,6 +39,16 @@
     .cols{display:flex;gap:28px;justify-content:center;align-items:flex-start;width:100%}
     .col{flex:1;text-align:left}
     .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;background:#f6f7fb;padding:8px;border-radius:8px}
+    .carousel{position:relative;width:100%;max-width:900px;margin:20px auto;overflow:hidden}
+    .carousel-inner{display:flex;transition:transform 0.5s ease-in-out}
+    .carousel-item{min-width:100%;display:flex;justify-content:center;align-items:center}
+    .carousel-item video{width:100%;max-width:800px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+    .carousel-controls{margin-top:20px;display:flex;justify-content:center;gap:12px}
+    .carousel-btn{padding:8px 16px;background:var(--accent);color:white;border:none;border-radius:6px;cursor:pointer;font-size:14px;transition:opacity 0.2s}
+    .carousel-btn:hover{opacity:0.85}
+    .carousel-indicators{display:flex;justify-content:center;gap:8px;margin-top:12px}
+    .carousel-indicator{width:10px;height:10px;border-radius:50%;background:#ccc;cursor:pointer;transition:background 0.2s}
+    .carousel-indicator.active{background:var(--accent)}
   </style>
 </head>
 <body>
@@ -112,6 +122,34 @@
           <li>Cloud agent — architecture designed, prototype next.</li>
           <li>Team — small, self-funded (me + friends). We're shipping code now.</li>
         </ul>
+      </section>
+
+      <section>
+        <h2>Demos</h2>
+        <div class="carousel" id="demoCarousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <video controls>
+                <source src="demos/value-investing-market-research.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="carousel-item">
+              <video controls>
+                <source src="demos/google-calendar-demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn" onclick="previousSlide()">Previous</button>
+            <button class="carousel-btn" onclick="nextSlide()">Next</button>
+          </div>
+          <div class="carousel-indicators">
+            <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
+            <div class="carousel-indicator" onclick="goToSlide(1)"></div>
+          </div>
+        </div>
       </section>
 
       <section>
@@ -290,6 +328,43 @@
       pdfMaxPagesPerSlide: 1,
       pdfSeparateFragments: false
     });
+
+    // Carousel functionality
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-item');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    const carouselInner = document.querySelector('.carousel-inner');
+
+    function updateCarousel() {
+      if (carouselInner) {
+        carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+        // Pause all videos
+        document.querySelectorAll('.carousel-item video').forEach(video => {
+          video.pause();
+        });
+
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+          indicator.classList.toggle('active', index === currentSlide);
+        });
+      }
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateCarousel();
+    }
+
+    function previousSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateCarousel();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+    }
   </script>
 </body>
 </html>
