@@ -1,0 +1,8 @@
+{
+  "name": "vibebrowser-pitch",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "netlify-plugin-git-lfs": "^1.0.4"
+  }
+}
