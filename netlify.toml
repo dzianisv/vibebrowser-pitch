@@ -1,5 +1,6 @@
-[[plugins]]
-package = "netlify-plugin-git-lfs"
-
 [build]
 publish = "."
+command = "git lfs pull"
+
+[[plugins]]
+package = "netlify-plugin-git-lfs"
