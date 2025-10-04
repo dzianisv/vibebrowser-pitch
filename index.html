@@ -223,15 +223,12 @@
           <li>It's an agentic browser: not just suggestions, it executes workflows inside the browser.</li>
           <li>Target automations: booking, LinkedIn outreach, travel planning, investment research, GitHub PR review,
             content ops.</li>
-          <li>MVP definition (in 2-3 months) - Vibe Agent is capable to perform the following tasks (prompts):
+          <li>MVP capabilities (2-3 months):
             <ul>
-              <li>✅ Stock research: Analyze today's market from Forbes/Motley Fool/Business Insider, pick 3 stocks -20%+
-                from ATH with growth potential, gather PE metrics.</li>
-              <li>🚀 Sumarize Gmail inbox for today</li>
-              <li>LinkedIn outreach: Find VC investors in network and do cold outreach pitching vibebrowser.app (short,
-                factual).</li>
-              <li>Book flight: SFO to New York on Jan 15, one way, cheapest after 7am, direct, using saved card.</li>
-              <li>B2B lead generation: Find all employees at target companies, extract emails and LinkedIn profiles, create database, send LinkedIn connection requests, send outreach emails.</li>
+              <li>✅ Investment research: Analyze market trends, identify undervalued stocks, gather metrics</li>
+              <li>🚀 Email & calendar management: Summarize inbox, schedule meetings</li>
+              <li>B2B lead generation: Find employees, extract contacts, automate outreach</li>
+              <li>Travel booking: Search flights, compare prices, complete purchase</li>
             </ul>
           </li>
           <li>Delivery: extension (MVP) → component/Chromium build → cloud agent for long jobs.</li>
@@ -239,20 +236,22 @@
       </section>
 
       <section>
-        <h2>Architecture / delivery</h2>
+        <h2>Technical Architecture & Delivery</h2>
         <div class="cols">
           <div class="col">
             <h3>Extension (MVP)</h3>
-            <p>Chromium extension. DOM injection + browser control. Lowest friction for users.</p>
+            <p>Chromium extension with DOM control. Lowest friction.</p>
+            <p style="font-size: 14px; margin-top: 8px;">Tech: Content scripts, proprietary automation framework, GPT-5-mini.</p>
           </div>
           <div class="col">
-            <h3>Vibe Browser</h3>
-            <p>Custom browser build (based on Google's Chromium open source project) for deeper context access and
-              background capabilities beyond extension APIs. Hard to convience users to use another browser</p>
+            <h3>Custom Browser</h3>
+            <p>Chromium fork for deeper context access beyond extension APIs.</p>
+            <p style="font-size: 14px; margin-top: 8px;">Tech: Native Gemini Nano integration, LangGraph ReAct workflows.</p>
           </div>
           <div class="col">
-            <h3>Cloud agent</h3>
-            <p>Headless Chromium (Playwright) + LLM orchestration for long-running, reliable automations.</p>
+            <h3>Cloud Agent</h3>
+            <p>Headless Chromium for long-running automations.</p>
+            <p style="font-size: 14px; margin-top: 8px;">Tech: Playwright, containerized sessions, audit logs.</p>
           </div>
         </div>
       </section>
@@ -262,186 +261,8 @@
         <ul>
           <li><strong>Privacy-first:</strong> Chrome's built-in Gemini Nano enables on-device inference — completely private, no data sent to cloud.</li>
           <li><strong>Speed:</strong> Local model = instant responses, no API latency.</li>
-          <li><strong>Cost efficiency:</strong> On-device processing reduces cloud LLM costs dramatically.</li>
+          <li><strong>DOM-based vs. Screenshot:</strong> Competitors rely on expensive, slow screenshot-based vision models. Our DOM approach is faster and cheaper.</li>
           <li><strong>Hybrid approach:</strong> Use local Gemini Nano for fast tasks, cloud models (GPT-5) for complex workflows.</li>
-          <li>Competitors rely entirely on cloud APIs and screenshot-based vision models — slower, privacy concerns, higher ongoing costs. Screenshot analysis is expensive and time-consuming compared to our DOM-based approach.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Current status — what exists now</h2>
-        <ul>
-          <li>Extension MVP — functional but I'm still working hard to make it better (see demos at linkedin or twitter)
-          </li>
-          <li>Chromium fork build — repo and build integration done; component wired in.</li>
-          <li>Cloud agent — architecture designed, prototype next.</li>
-          <li>Team — small, self-funded (me + friends). We're shipping code now.</li>
-        </ul>
-      </section>
-
-
-      <section>
-        <h2>Technical stack & constraints</h2>
-        <ul>
-          <li>Extension: Chromium extension APIs, content scripts, DOM injection, page control</li>
-          <li>Browser control: Proprietary in-house tooling for reliable automation, no reliance on third-party
-            frameworks like browser-use or OpenAI's computer-use-preview.</li>
-          <li>LLM: optimized for GPT‑5‑mini to reduce cost; support for larger models when needed.</li>
-          <li><strong>Privacy & Speed:</strong> Integration with Chrome's built-in Gemini Nano (<a href="https://developer.chrome.com/docs/ai" target="_blank">Chrome AI API</a>) for completely private, on-device inference — no data leaves your browser, instant responses.</li>
-          <li>Cloud: headless Chromium via Playwright, containerized sessions, per-session isolation, and audit logs.
-          </li>
-          <li>LangGraph workflows: ReAct architecture with reasoning and reflection layer to avoid getting stuck on the
-            same actions.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Why funding matters — concrete reasons</h2>
-        <ul>
-          <li><strong>The broader vision:</strong> We're building agentic teams — AI agents that collaborate to solve complex workflows. The web agent (browser + cloud) is one of the first foundational pieces.</li>
-          <li><strong>Scale the team:</strong> I work full-time on the project; my friends contribute part-time but can't leave their jobs. Capital allows us to hire a full 5-person team and accelerate development velocity.</li>
-          <li>Even on GPT‑5‑mini, hundreds of workflows/day → material monthly spend. We also need to use expensive
-            OpenAI model computer-use-preview, that costs x12 times more than GPT-5-mini.</li>
-          <li>Custom fallback strategies for browser control challenges, ensuring reliability without external
-            dependencies.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Burn Rate Breakdown</h2>
-        <table style="font-size: 12px; margin-top: 10px;">
-          <thead>
-            <tr>
-              <th>Category</th>
-              <th>Description</th>
-              <th>Yearly Cost (USD)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Salaries</strong></td>
-              <td>Dzianis @ San Francisco, CA - Component Extension Core</td>
-              <td>$175,000</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Dmitriy Kastenich @ Bergen, Norway - Google Chrome internals</td>
-              <td>$150,000</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Dzmitriy Dalenka @ Vancouver, BC - Machine Learning, Agent workflow optimization</td>
-              <td>$150,000</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Anton @ Batumi, Georgia - Component Extension UI/UX frontend</td>
-              <td>$100,000</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Kate @ Warsaw, Poland - UI/UX Designer</td>
-              <td>$50,000</td>
-            </tr>
-            <tr>
-              <td><strong>Subtotal (salaries)</strong></td>
-              <td></td>
-              <td><strong>$625,000</strong></td>
-            </tr>
-            <tr>
-              <td><strong>Co-working</strong></td>
-              <td>WeWork All Access (300 × 4 × 12)</td>
-              <td>$14,400</td>
-            </tr>
-            <tr>
-              <td><strong>Medical Insurance (US only)</strong></td>
-              <td>Dzianis (SF), $500 × 12</td>
-              <td>$6,000</td>
-            </tr>
-            <tr>
-              <td><strong>Offsites (Flights)</strong></td>
-              <td>1000 × 4 × 4</td>
-              <td>$16,000</td>
-            </tr>
-            <tr>
-              <td><strong>Offsites (Hotels)</strong></td>
-              <td>120/night × 7 nights × 4 ppl × 4 quarters</td>
-              <td>$13,440</td>
-            </tr>
-            <tr>
-              <td><strong>Infrastructure</strong></td>
-              <td>Cloud + dev tools</td>
-              <td>$50,000</td>
-            </tr>
-            <tr>
-              <td><strong>Claude Code</strong></td>
-              <td>$100 × 4 × 12</td>
-              <td>$4,800</td>
-            </tr>
-            <tr>
-              <td><strong>Google Workspace (GSuite)</strong></td>
-              <td>Business Starter, $7 × 4 × 12</td>
-              <td>$336</td>
-            </tr>
-            <tr>
-              <td><strong>C-Corp Maintenance (Delaware)</strong></td>
-              <td>Dooola + franchise tax, filings</td>
-              <td>~$3,000–5,000</td>
-            </tr>
-            <tr>
-              <td><strong>Payroll Service</strong></td>
-              <td>Payroll service for 4 employees (estimated by ChatGPT)</td>
-              <td>$960–$1,320</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Corporate tax return / compliance</td>
-              <td>$1,500</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Cross-border filings buffer</td>
-              <td>$1,000–$3,000</td>
-            </tr>
-            <tr>
-              <td><strong>Total Annual Burn</strong></td>
-              <td></td>
-              <td><strong>~$735,476 – $741,976</strong></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section>
-        <h2>Roadmap & Business Plan</h2>
-        <div class="cols">
-          <div class="col">
-            <h3>0–6 months: Extension MVP</h3>
-            <ul style="font-size: 16px;">
-              <li>Release Google Chrome extension with dashboard</li>
-              <li>User authentication & subscription billing</li>
-              <li><strong>Pricing:</strong> $25/mo (GPT-5), $100/mo (uses advance model from OpenAI - computer-use-preview)</li>
-            </ul>
-          </div>
-          <div class="col">
-            <h3>6–12 months: Chromium Browser</h3>
-            <ul style="font-size: 16px;">
-              <li>Custom browser with native AI integration</li>
-              <li>Deep context: history, credentials, sessions</li>
-              <li>Better performance & reliability</li>
-              <li><strong>Target:</strong> 1,000 users → $25k-$100k MRR</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-
-      <section>
-        <h2>Ask</h2>
-        <ul>
-          <li>Capital to cover infra & LLM costs while we scale users and validate product-market fit.</li>
-          <li>Advice and introductions on GTM and initial distribution channels.</li>
-          <li>Partnerships with early enterprise users — sales/research/recruiting teams.</li>
         </ul>
       </section>
 
@@ -490,6 +311,149 @@
             <div class="carousel-indicator" onclick="goToSlide(2)"></div>
           </div>
         </div>
+      </section>
+
+      <section>
+        <h2>Technical Architecture & Delivery</h2>
+        <div class="cols">
+          <div class="col">
+            <h3>Extension (MVP)</h3>
+            <p>Chromium extension with DOM control. Lowest friction.</p>
+            <p style="font-size: 14px; margin-top: 8px;">Tech: Content scripts, proprietary automation framework, GPT-5-mini.</p>
+          </div>
+          <div class="col">
+            <h3>Custom Browser</h3>
+            <p>Chromium fork for deeper context access beyond extension APIs.</p>
+            <p style="font-size: 14px; margin-top: 8px;">Tech: Native Gemini Nano integration, LangGraph ReAct workflows.</p>
+          </div>
+          <div class="col">
+            <h3>Cloud Agent</h3>
+            <p>Headless Chromium for long-running automations.</p>
+            <p style="font-size: 14px; margin-top: 8px;">Tech: Playwright, containerized sessions, audit logs.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Current Status</h2>
+        <ul>
+          <li>Extension MVP — functional, shipping updates weekly (see demos)</li>
+          <li>Chromium fork — build infrastructure complete, component integrated</li>
+          <li>Cloud agent — architecture designed, prototyping next</li>
+          <li>Team — self-funded, shipping code now</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Why We Need Funding</h2>
+        <ul>
+          <li><strong>Scale the team:</strong> Hire 5 full-time engineers to accelerate from MVP to full product in 6-12 months.</li>
+          <li><strong>Infrastructure costs:</strong> LLM APIs for hundreds of workflows/day add up quickly, especially for advanced models.</li>
+          <li><strong>Bigger vision:</strong> Web agent is first step toward agentic teams — AI agents collaborating to solve complex multi-step workflows.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Burn Rate Breakdown</h2>
+        <table style="font-size: 12px; margin-top: 10px;">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Yearly Cost (USD)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Salaries</strong></td>
+              <td>Dzianis @ San Francisco, CA - Component Extension Core</td>
+              <td>$175,000</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Dmitriy Kastenich @ Bergen, Norway - Google Chrome internals</td>
+              <td>$150,000</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Dzmitriy Dalenka @ Vancouver, BC - Machine Learning, Agent workflow optimization</td>
+              <td>$150,000</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Anton @ Batumi, Georgia - Component Extension UI/UX frontend</td>
+              <td>$100,000</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Kate @ Warsaw, Poland - UI/UX Designer</td>
+              <td>$50,000</td>
+            </tr>
+            <tr>
+              <td><strong>Subtotal (salaries)</strong></td>
+              <td></td>
+              <td><strong>$625,000</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Infrastructure</strong></td>
+              <td>Cloud, LLM APIs, dev tools</td>
+              <td>$50,000</td>
+            </tr>
+            <tr>
+              <td><strong>Team Operations</strong></td>
+              <td>Co-working, offsites, medical insurance</td>
+              <td>$40,000</td>
+            </tr>
+            <tr>
+              <td><strong>Corporate & Legal</strong></td>
+              <td>C-corp maintenance, payroll, tax, compliance</td>
+              <td>$7,000–$11,000</td>
+            </tr>
+            <tr>
+              <td><strong>Software & Tools</strong></td>
+              <td>Claude Code, Google Workspace, misc</td>
+              <td>$5,200</td>
+            </tr>
+            <tr>
+              <td><strong>Total Annual Burn</strong></td>
+              <td></td>
+              <td><strong>~$727,200 – $731,200</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Roadmap & Business Plan</h2>
+        <div class="cols">
+          <div class="col">
+            <h3>0–6 months: Extension MVP</h3>
+            <ul style="font-size: 16px;">
+              <li>Release Google Chrome extension with dashboard</li>
+              <li>User authentication & subscription billing</li>
+              <li><strong>Pricing:</strong> $25/mo (GPT-5), $100/mo (uses advance model from OpenAI - computer-use-preview)</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>6–12 months: Chromium Browser</h3>
+            <ul style="font-size: 16px;">
+              <li>Custom browser with native AI integration</li>
+              <li>Deep context: history, credentials, sessions</li>
+              <li>Better performance & reliability</li>
+              <li><strong>Target:</strong> 1,000 users → $25k-$100k MRR</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+      <section>
+        <h2>Ask</h2>
+        <ul>
+          <li>Capital to cover infra & LLM costs while we scale users and validate product-market fit.</li>
+          <li>Advice and introductions on GTM and initial distribution channels.</li>
+          <li>Partnerships with early enterprise users — sales/research/recruiting teams.</li>
+        </ul>
       </section>
 
       <section>
