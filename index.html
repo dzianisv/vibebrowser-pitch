@@ -44,13 +44,19 @@
     h1 {
       font-weight: 700;
       margin: 0 0 8px 0;
-      text-align: center
+      text-align: center;
+      font-size: 2.5em;
     }
 
     h2 {
       margin: 0 0 8px 0;
       font-weight: 600;
-      text-align: center
+      text-align: center;
+      font-size: 1.8em;
+    }
+
+    h3 {
+      font-size: 1.3em;
     }
 
     p {
@@ -96,6 +102,70 @@
     .col {
       flex: 1;
       text-align: left
+    }
+
+    /* Mobile responsive styles */
+    @media (max-width: 768px) {
+      .reveal .slides section {
+        padding: 20px 16px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.5em;
+      }
+
+      h3 {
+        font-size: 1.2em;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      li {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .muted {
+        font-size: 16px;
+      }
+
+      .cols {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .col {
+        width: 100%;
+      }
+
+      .reveal .slides section>* {
+        max-width: 100%;
+      }
+
+      .reveal .slides section ul,
+      .reveal .slides section ol {
+        max-width: 100%;
+        padding-left: 20px;
+      }
+
+      table {
+        font-size: 10px !important;
+      }
+
+      .carousel-caption {
+        font-size: 14px !important;
+      }
+
+      .carousel-btn {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+      }
     }
 
     .mono {
