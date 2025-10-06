@@ -184,6 +184,15 @@
       strong {
         font-size: 14px !important;
       }
+
+      /* Override inline styles on mobile */
+      .col p[style] {
+        font-size: 12px !important;
+      }
+
+      .col h3 {
+        margin-bottom: 8px !important;
+      }
     }
 
     @media (max-width: 480px) {
@@ -202,6 +211,10 @@
       .reveal li,
       li {
         font-size: 13px !important;
+      }
+
+      .col p[style] {
+        font-size: 11px !important;
       }
     }
 
@@ -355,22 +368,22 @@
       </section>
 
       <section>
-        <h2>Technical Architecture & Delivery</h2>
+        <h2>Technical Architecture</h2>
         <div class="cols">
           <div class="col">
             <h3>Extension (MVP)</h3>
-            <p>Chromium extension with DOM control. Lowest friction.</p>
-            <p style="font-size: 14px; margin-top: 8px;">Tech: Content scripts, proprietary automation framework, GPT-5-mini.</p>
+            <p>Chrome extension with DOM control.</p>
+            <p style="font-size: 14px; margin-top: 6px;">Proprietary automation, GPT-5-mini</p>
           </div>
           <div class="col">
             <h3>Custom Browser</h3>
-            <p>Chromium fork for deeper context access beyond extension APIs.</p>
-            <p style="font-size: 14px; margin-top: 8px;">Tech: Native Gemini Nano integration, LangGraph ReAct workflows.</p>
+            <p>Chromium fork with deeper access.</p>
+            <p style="font-size: 14px; margin-top: 6px;">Gemini Nano, LangGraph workflows</p>
           </div>
           <div class="col">
             <h3>Cloud Agent</h3>
-            <p>Headless Chromium for long-running automations.</p>
-            <p style="font-size: 14px; margin-top: 8px;">Tech: Playwright, containerized sessions, audit logs.</p>
+            <p>Headless for long-running tasks.</p>
+            <p style="font-size: 14px; margin-top: 6px;">Playwright, containerized sessions</p>
           </div>
         </div>
       </section>
