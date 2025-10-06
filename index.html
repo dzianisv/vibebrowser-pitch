@@ -59,6 +59,12 @@
       font-size: 1.3em;
     }
 
+    h4 {
+      font-size: 1em;
+      font-weight: 600;
+      margin: 4px 0;
+    }
+
     p {
       color: #222;
       margin: 6px 0;
@@ -124,6 +130,11 @@
       .reveal h3,
       h3 {
         font-size: 1.1em !important;
+      }
+
+      .reveal h4,
+      h4 {
+        font-size: 0.95em !important;
       }
 
       .reveal p,
@@ -371,17 +382,17 @@
         <h2>Technical Architecture</h2>
         <div class="cols">
           <div class="col">
-            <h3>Extension (MVP)</h3>
+            <h4>Extension (MVP)</h4>
             <p>Chrome extension with DOM control.</p>
             <p style="font-size: 14px; margin-top: 6px;">Proprietary automation, GPT-5-mini</p>
           </div>
           <div class="col">
-            <h3>Custom Browser</h3>
+            <h4>Custom Browser</h4>
             <p>Chromium fork with deeper access.</p>
             <p style="font-size: 14px; margin-top: 6px;">Gemini Nano, LangGraph workflows</p>
           </div>
           <div class="col">
-            <h3>Cloud Agent</h3>
+            <h4>Cloud Agent</h4>
             <p>Headless for long-running tasks.</p>
             <p style="font-size: 14px; margin-top: 6px;">Playwright, containerized sessions</p>
           </div>
