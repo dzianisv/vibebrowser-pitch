@@ -313,6 +313,120 @@
     .carousel-indicator.active {
       background: var(--accent)
     }
+
+    /* Timeline styles */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 40px;
+      bottom: 40px;
+      width: 2px;
+      background: var(--accent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 70px;
+      margin-bottom: 40px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 20px;
+      top: 8px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--accent);
+      z-index: 2;
+    }
+
+    .timeline-content {
+      text-align: left;
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .timeline-header strong {
+      font-size: 1.2em;
+      color: #222;
+    }
+
+    .timeline-time {
+      font-size: 0.9em;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .timeline-content ul {
+      margin: 8px 0 0 0;
+      padding-left: 20px;
+      font-size: 16px;
+    }
+
+    .timeline-content li {
+      margin: 6px 0;
+      font-size: 16px;
+    }
+
+    /* Mobile timeline adjustments */
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 15px;
+      }
+
+      .timeline-item {
+        padding-left: 45px;
+      }
+
+      .timeline-dot {
+        left: 8px;
+        width: 14px;
+        height: 14px;
+      }
+
+      .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+
+      .timeline-header strong {
+        font-size: 1em !important;
+      }
+
+      .timeline-time {
+        font-size: 0.85em !important;
+      }
+
+      .timeline-content ul {
+        padding-left: 15px;
+        font-size: 14px !important;
+      }
+
+      .timeline-content li {
+        font-size: 14px !important;
+      }
+    }
   </style>
 </head>
 
@@ -379,30 +493,56 @@
       </section>
 
       <section>
-        <h2>Technical Roadmap</h2>
-        <ul style="text-align: left; max-width: 85%; margin: 0 auto;">
-          <li><strong>Phase 1 (Now):</strong> Extension MVP
-            <ul style="font-size: 16px; margin-top: 4px;">
-              <li>Chrome AI Co-Pilot with chat interface</li>
-              <li>Model-agnostic: works with any LLM provider</li>
-              <li>Proprietary automation framework</li>
-            </ul>
-          </li>
-          <li><strong>Phase 2 (6-12 mo):</strong> Browser Build
-            <ul style="font-size: 16px; margin-top: 4px;">
-              <li>Chromium fork for deeper system access</li>
-              <li>Built-in Gemini Nano integration</li>
-              <li>LangGraph agent workflows</li>
-            </ul>
-          </li>
-          <li><strong>Phase 3:</strong> Cloud Agent
-            <ul style="font-size: 16px; margin-top: 4px;">
-              <li>Headless browser for long-running tasks</li>
-              <li>Playwright-based, containerized sessions</li>
-              <li>Scheduled workflows & automation</li>
-            </ul>
-          </li>
-        </ul>
+        <h2>Roadmap & Business Plan</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <strong>Phase 1: Extension MVP</strong>
+                <span class="timeline-time">0-6 months</span>
+              </div>
+              <ul>
+                <li>Chrome AI Co-Pilot with chat interface</li>
+                <li>Model-agnostic automation framework</li>
+                <li>User auth & subscription billing</li>
+                <li><strong>Pricing:</strong> $25/mo (GPT-5), $100/mo (advanced models)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <strong>Phase 2: Browser Build</strong>
+                <span class="timeline-time">6-12 months</span>
+              </div>
+              <ul>
+                <li>Chromium fork with deeper access</li>
+                <li>Built-in Gemini Nano integration</li>
+                <li>Enhanced context: history, credentials</li>
+                <li><strong>Target:</strong> 1,000 users → $25k-$100k MRR</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <strong>Phase 3: Cloud Agent</strong>
+                <span class="timeline-time">12+ months</span>
+              </div>
+              <ul>
+                <li>Headless browser for long tasks</li>
+                <li>Scheduled workflows & automation</li>
+                <li>Enterprise features & API access</li>
+                <li><strong>Scale:</strong> Multi-tenant infrastructure</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section>
@@ -562,30 +702,6 @@
           </tbody>
         </table>
       </section>
-
-      <section>
-        <h2>Roadmap & Business Plan</h2>
-        <div class="cols">
-          <div class="col">
-            <h3>0–6 months: Extension MVP</h3>
-            <ul style="font-size: 16px;">
-              <li>Release Google Chrome extension with dashboard</li>
-              <li>User authentication & subscription billing</li>
-              <li><strong>Pricing:</strong> $25/mo (GPT-5), $100/mo (uses advanced model from OpenAI - computer-use-preview)</li>
-            </ul>
-          </div>
-          <div class="col">
-            <h3>6–12 months: Browser Build</h3>
-            <ul style="font-size: 16px;">
-              <li>Custom browser with native AI integration</li>
-              <li>Deep context: history, credentials, sessions</li>
-              <li>Better performance & reliability</li>
-              <li><strong>Target:</strong> 1,000 users → $25k-$100k MRR</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
 
       <section>
         <h2>Ask</h2>
