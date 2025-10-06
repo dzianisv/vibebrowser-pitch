@@ -342,11 +342,12 @@
         <h2>Competitive Advantage</h2>
         <p class="muted" style="margin-bottom: 20px;">vs. Perplexity Comet & BrowserOS</p>
         <ul>
-          <li><strong>Started in stealth:</strong> Built VibeBrowser before Perplexity and BrowserOS announced their browsers — already shipping.</li>
           <li><strong>Privacy-first:</strong> Chrome's built-in Gemini Nano enables on-device inference — completely private, no data sent to cloud.</li>
           <li><strong>Speed:</strong> Local model = instant responses, no API latency.</li>
-          <li><strong>DOM-based vs. Screenshot:</strong> Competitors rely on expensive, slow screenshot-based vision models. Our DOM approach is faster and cheaper.</li>
+          <li><strong>DOM-based vs. Screenshot:</strong> We support 2 modes: Index DOM Nodes + Vision. Vision improves quality but is not strictly required. Without Vision models, the AI copilot is capable of working with the local embedded Gemini Nano included in Google Chrome.</li>
           <li><strong>Hybrid approach:</strong> Use local Gemini Nano for fast tasks, cloud models (GPT-5) for complex workflows.</li>
+         <li><strong>Started in stealth:</strong> You may ask why I built it when there is Comet and Composit? - Because I started to work before they announced their browsers and still see they are not good enough.</li>
+          
         </ul>
       </section>
 
@@ -371,7 +372,7 @@
               </video>
               <div class="carousel-caption">
                 <img src="https://calendar.google.com/googlecalendar/images/favicons_2020q4/calendar_13.ico" width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
-                Vibe AI Agent summarize Google Calendar events for today
+                Vibe AI Agent summarizes Google Calendar events for today
               </div>
             </div>
             <div class="carousel-item">
@@ -393,50 +394,6 @@
             <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
             <div class="carousel-indicator" onclick="goToSlide(1)"></div>
             <div class="carousel-indicator" onclick="goToSlide(2)"></div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2>Technical Architecture & Delivery</h2>
-        <div class="cols">
-          <div class="col">
-            <h3>Extension (MVP)</h3>
-            <p>Chromium extension with DOM control. Lowest friction.</p>
-            <p style="font-size: 14px; margin-top: 8px;">Tech: Content scripts, proprietary automation framework, GPT-5-mini.</p>
-          </div>
-          <div class="col">
-            <h3>Custom Browser</h3>
-            <p>Chromium fork for deeper context access beyond extension APIs.</p>
-            <p style="font-size: 14px; margin-top: 8px;">Tech: Native Gemini Nano integration, LangGraph ReAct workflows.</p>
-          </div>
-          <div class="col">
-            <h3>Cloud Agent</h3>
-            <p>Headless Chromium for long-running automations.</p>
-            <p style="font-size: 14px; margin-top: 8px;">Tech: Playwright, containerized sessions, audit logs.</p>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2>Recent Innovation: Vision Model Support</h2>
-        <p style="font-size: 16px; margin-bottom: 20px;">Just added multimodal capabilities for complex UI understanding</p>
-        <div class="cols">
-          <div class="col">
-            <h3>✅ Benefits</h3>
-            <ul style="font-size: 16px;">
-              <li><strong>Higher quality:</strong> Better understanding of visual UI elements and layouts</li>
-              <li><strong>Complex workflows:</strong> Handles dynamic UIs that DOM alone can't parse</li>
-              <li><strong>Robustness:</strong> Works when DOM structure is unclear or obfuscated</li>
-            </ul>
-          </div>
-          <div class="col">
-            <h3>⚖️ Tradeoffs</h3>
-            <ul style="font-size: 16px;">
-              <li><strong>Speed:</strong> Vision models add latency vs. pure DOM parsing</li>
-              <li><strong>Cost:</strong> Multimodal LLM calls are more expensive</li>
-              <li><strong>Hybrid approach:</strong> Use vision selectively for complex cases, DOM for speed</li>
-            </ul>
           </div>
         </div>
       </section>
@@ -464,7 +421,7 @@
       <section>
         <h2>Why We Need Funding</h2>
         <ul>
-          <li><strong>Scale the team:</strong> Hire 3 engineers, 1 UI/UX designer, and 1 product/marketing person (customer research, painpoint discovery, sales) to accelerate from MVP to full product in 6-12 months.</li>
+          <li><strong>Scale the team:</strong> Hire 3 engineers, 1 UI/UX designer, and 1 product/marketing person (customer research, pain point discovery, sales) to accelerate from MVP to full product in 6-12 months.</li>
           <li><strong>Infrastructure costs:</strong> LLM APIs for hundreds of workflows/day add up quickly, especially for advanced models.</li>
         </ul>
       </section>
@@ -547,7 +504,7 @@
             <ul style="font-size: 16px;">
               <li>Release Google Chrome extension with dashboard</li>
               <li>User authentication & subscription billing</li>
-              <li><strong>Pricing:</strong> $25/mo (GPT-5), $100/mo (uses advance model from OpenAI - computer-use-preview)</li>
+              <li><strong>Pricing:</strong> $25/mo (GPT-5), $100/mo (uses advanced model from OpenAI - computer-use-preview)</li>
             </ul>
           </div>
           <div class="col">
@@ -574,7 +531,7 @@
 
       <section>
         <h2>Interested?</h2>
-        <p>Check out twitter and linkedin page for more video demos</p>
+        <p>Check out our Twitter and LinkedIn pages for more video demos</p>
         <ol>
           <li><a href="mailto:info@vibebrowser.app">info@vibebrowser.app</a></li>
           <li><a href="https://linkedin.com/company/vibebrowser">linkedin.com/company/vibebrowser</a></li>
