@@ -107,64 +107,101 @@
     /* Mobile responsive styles */
     @media (max-width: 768px) {
       .reveal .slides section {
-        padding: 20px 16px;
+        padding: 15px 10px !important;
       }
 
+      .reveal h1,
       h1 {
-        font-size: 2em;
+        font-size: 1.8em !important;
       }
 
+      .reveal h2,
       h2 {
-        font-size: 1.5em;
+        font-size: 1.3em !important;
+        margin-bottom: 12px !important;
       }
 
+      .reveal h3,
       h3 {
-        font-size: 1.2em;
+        font-size: 1.1em !important;
       }
 
+      .reveal p,
       p {
-        font-size: 16px;
+        font-size: 14px !important;
+        line-height: 1.4 !important;
       }
 
+      .reveal li,
       li {
-        font-size: 16px;
-        line-height: 1.5;
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        margin: 4px 0 !important;
       }
 
+      .reveal .muted,
       .muted {
-        font-size: 16px;
+        font-size: 14px !important;
       }
 
       .cols {
-        flex-direction: column;
-        gap: 16px;
+        flex-direction: column !important;
+        gap: 12px !important;
       }
 
       .col {
-        width: 100%;
+        width: 100% !important;
       }
 
       .reveal .slides section>* {
-        max-width: 100%;
+        max-width: 100% !important;
       }
 
       .reveal .slides section ul,
       .reveal .slides section ol {
-        max-width: 100%;
-        padding-left: 20px;
+        max-width: 100% !important;
+        padding-left: 18px !important;
       }
 
       table {
-        font-size: 10px !important;
+        font-size: 9px !important;
+      }
+
+      table th,
+      table td {
+        padding: 4px 2px !important;
       }
 
       .carousel-caption {
-        font-size: 14px !important;
+        font-size: 12px !important;
       }
 
       .carousel-btn {
-        padding: 6px 12px !important;
-        font-size: 12px !important;
+        padding: 5px 10px !important;
+        font-size: 11px !important;
+      }
+
+      strong {
+        font-size: 14px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .reveal h1,
+      h1 {
+        font-size: 1.5em !important;
+      }
+
+      .reveal h2,
+      h2 {
+        font-size: 1.2em !important;
+      }
+
+      .reveal p,
+      p,
+      .reveal li,
+      li {
+        font-size: 13px !important;
       }
     }
 
@@ -556,11 +593,17 @@
       document.getElementsByTagName('head')[0].appendChild(link);
     }
 
+    // Detect if mobile
+    const isMobile = window.innerWidth <= 768;
+
     Reveal.initialize({
       hash: true,
       slideNumber: true,
-      width: 1200,
-      height: 768,
+      width: isMobile ? '100%' : 1200,
+      height: isMobile ? '100%' : 768,
+      margin: isMobile ? 0.05 : 0.1,
+      minScale: isMobile ? 1 : 0.2,
+      maxScale: isMobile ? 1 : 2.0,
       center: true,  // Center slides vertically
       transition: 'fade',
       // PDF export settings
