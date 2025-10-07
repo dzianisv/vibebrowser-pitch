@@ -367,12 +367,12 @@
     }
 
     .timeline-header strong {
-      font-size: 1.2em;
+      font-size: 0.6em;
       color: #222;
     }
 
     .timeline-time {
-      font-size: 0.9em;
+      font-size: 0.5em;
       color: var(--muted);
       font-weight: 500;
     }
@@ -498,7 +498,7 @@
     <div class="slides">
       <section>
         <h1>VibeBrowser</h1>
-        <p class="muted">Agentic Browser — Unlike AI chatbots that assist browsing, Vibe is an autonomous web agent that
+        <p class="muted">Agentic Browser — Unlike AI chatbots that assist browsing, VibeBrowser is an autonomous web agent that
           takes full control. Just say "book my flight to NYC" or "find me the cheapest insurance" and watch as it
           researches, compares, navigates multiple sites, and completes entire workflows—all on its own.</p>
       </section>
@@ -562,12 +562,13 @@
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <div class="timeline-header">
-                <strong>Phase 1: Extension MVP</strong>
-                <span class="timeline-time">0-6 months</span>
+                <strong>Phase 1: MVP, Google Chrome Extension and basic automation</strong>
+                <span class="timeline-time">0-3 months</span>
               </div>
               <ul>
                 <li>Chrome AI Co-Pilot, auth & billing</li>
-                <li><strong>Pricing:</strong> $25-$100/mo</li>
+                <li><strong>Pricing:</strong> $25</li>
+                <li><strong>Target:</strong> 500 users → $12.5k MRR</li>
               </ul>
             </div>
           </div>
@@ -576,12 +577,14 @@
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <div class="timeline-header">
-                <strong>Phase 2: Browser Build</strong>
-                <span class="timeline-time">6-12 months</span>
+                <strong>Phase 2: Android & iOS Apps & Privacy Focus</strong>
+                <span class="timeline-time">3-6 months</span>
               </div>
               <ul>
-                <li>Chromium fork + Gemini Nano</li>
-                <li><strong>Target:</strong> 1,000 users → $25k-$100k MRR</li>
+                <li>Focus on mobile: Chromium fork with integrated component extension</li>
+                <li>Focus on privacy: Integration with embedded Google Chrome / AI Gemini Nano that will allow running the extension locally</li>
+                <li><strong>MCP Support: </strong>to add integration with Gmail, Google Calendar, Slack, Google Drive, Github, Github, Notion, etc</li>
+                <li><strong>Target:</strong> 1000 users → $25k MRR</li>
               </ul>
             </div>
           </div>
@@ -590,10 +593,12 @@
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <div class="timeline-header">
-                <strong>Phase 3: Cloud Agent</strong>
-                <span class="timeline-time">12+ months</span>
+                <strong>Phase 3: Cloud Agent & Privacy Focus</strong>
+                <span class="timeline-time">6+ months</span>
               </div>
               <ul>
+                <li>Focus on privacy: TEE/Security Enclaves to run LLM models (WE DO NOT SELL YOUR DATA, HERE IS A TEE PROOF)</li>
+                <li>Desktop browser with running workflows inside a container</li>
                 <li>Headless automation & enterprise API</li>
                 <li><strong>Scale:</strong> Multi-tenant infrastructure</li>
               </ul>
@@ -603,20 +608,26 @@
       </section>
 
       <section>
-        <h2>Competitive Advantage</h2>
-        <p class="muted" style="margin-bottom: 20px;">vs. Perplexity Comet & BrowserOS</p>
+        <h2>Why Vibe AI Browser Co-Pilot</h2>
         <ul>
-          <li><strong>Privacy-first:</strong> Chrome's built-in Gemini Nano enables on-device inference — completely private, no data sent to cloud.</li>
-          <li><strong>Speed:</strong> Local model = instant responses, no API latency.</li>
+          <li><strong>Privacy:</strong> Yes, there is Comet, that owns all your data. But... We are focusing on Privacy first. What does it mean? 
+            <div>- The AI Agent works with Gemini Nano that is embedded inside Google Chrome. What does it mean? No external LLM is used in this mode! Absolute privacy and works offline!
+              <span title="Gemini Nano can now be embedded directly within Google Chrome, and is accessible to extensions and web apps through the window.ai interface in supported Chrome builds. This means Chrome provides on-device AI capabilities, so developers can use Gemini Nano for local inference—without cloud dependencies—by calling the built-in APIs exposed on window.ai.">ℹ️</span>
+            </div>
+            <div>
+              - We are working on self-hosted LLM (Llama, Qwen, Mistral) on <a href="https://azure.microsoft.com/en-us/solutions/confidential-compute"><strong>TEE</strong> machines/Confidential computing</a>
+              What does it mean? We open-source code of the backend - customers have a cryptographic proof that agent works with the API backend that do not log, store and sell data!
+              <span title="To guarantee privacy, run the inference code inside Azure’s Trusted Execution Environments (TEEs). Azure offers Confidential VMs (based on AMD SEV-SNP or Intel TDX) and Confidential Containers (ACI/AKS) that encrypt all data and code at the hardware level.">ℹ️</span>
+            </div>
+          </li>
           <li><strong>DOM-based vs. Screenshot:</strong> We support 2 modes: Index DOM Nodes + Vision. Vision improves quality but is not strictly required. Without Vision models, the AI copilot is capable of working with the local embedded Gemini Nano included in Google Chrome.</li>
-          <li><strong>Hybrid approach:</strong> Use local Gemini Nano for fast tasks, cloud models (GPT-5) for complex workflows.</li>
-         <li><strong>Started in stealth:</strong> You may ask why I built it when there is Comet and Composit? - Because I started to work before they announced their browsers and still see they are not good enough.</li>
-          
+          <li><strong>Started in stealth:</strong> You may ask why I built it when there is Comet and Composite? - Because I started to work before they announced their browsers and still see they are not good enough.</li>
+          <li><strong>Freedom to choose</strong> an LLM and provider you want and you trust: OpenAI, Gemini, Anthropic, OpenRouter or Locally hosted LLM if you care much about privacy. Ready to be integrated for customers that care about privacy!</li>
         </ul>
       </section>
 
       <section>
-        <h2>Demos</h2>
+        <h2>Early Demos</h2>
         <div class="carousel" id="demoCarousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -666,27 +677,19 @@
         <h2>Current Status</h2>
         <ul>
           <li>Extension MVP — functional, shipping updates weekly (see demos)</li>
-          <li>Chromium fork — build infrastructure complete, component integrated</li>
+          <li>Chromium-based Vibe Browser app — build infrastructure complete, component integrated</li>
           <li>Cloud agent — architecture designed, prototyping next</li>
-          <li>Team — self-funded, shipping code now</li>
+          <li>Team: 1 full-time, 2 part-time engineers</li>
         </ul>
       </section>
 
       <section>
-        <h2>The Bigger Vision</h2>
+        <h2>Ask</h2>
         <ul>
-          <li><strong>Browser co-pilot is just the beginning:</strong> It's the first step toward a full-featured AI assistant that handles your daily routine tasks.</li>
-          <li><strong>Beyond browsing:</strong> Offload calendar management, email triage, research, scheduling, data entry, and repetitive workflows.</li>
-          <li><strong>Agentic teams:</strong> Multiple AI agents collaborating to solve complex, multi-step workflows across different platforms.</li>
-          <li><strong>Productivity reimagined:</strong> The team has a broader vision for how AI can fundamentally improve how people work—browser co-pilot is iteration one.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Why We Need Funding</h2>
-        <ul>
-          <li><strong>Scale the team:</strong> Hire 3 engineers, 1 UI/UX designer, and 1 product/marketing person (customer research, pain point discovery, sales) to accelerate from MVP to full product in 6-12 months.</li>
-          <li><strong>Infrastructure costs:</strong> LLM APIs for hundreds of workflows/day add up quickly, especially for advanced models.</li>
+          <li><strong>Capital to cover infrastructure costs:</strong> LLM APIs for hundreds of workflows/day add up quickly, especially for advanced models.</li>
+          <li><strong>Capital</strong> allows <strong>us to hire engineers to move faster</strong>! I need help with Android & iOS development</li>
+          <li>Advice and introductions on GTM and initial distribution channels.</li>
+          <li>Partnerships with early enterprise users — sales/research/recruiting teams.</li>
         </ul>
       </section>
 
@@ -760,12 +763,14 @@
         </table>
       </section>
 
+
       <section>
-        <h2>Ask</h2>
+        <h2>The Bigger Vision</h2>
         <ul>
-          <li>Capital to cover infra & LLM costs while we scale users and validate product-market fit.</li>
-          <li>Advice and introductions on GTM and initial distribution channels.</li>
-          <li>Partnerships with early enterprise users — sales/research/recruiting teams.</li>
+          <li><strong>Browser co-pilot is just the beginning:</strong> It's the first step toward a full-featured AI assistant that handles your daily routine tasks.</li>
+          <li><strong>Beyond browsing:</strong> Offload calendar management, email triage, research, scheduling, data entry, and repetitive workflows.</li>
+          <li><strong>Agentic teams:</strong> Multiple AI agents collaborating to solve complex, multi-step workflows across different platforms.</li>
+          <li><strong>Productivity reimagined:</strong> The team has a broader vision for how AI can fundamentally improve how people work—browser co-pilot is iteration one.</li>
         </ul>
       </section>
 
