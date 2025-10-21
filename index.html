@@ -5,104 +5,143 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>VibeBrowser — Pitch Deck</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/white.min.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <style>
     :root {
       --accent: #0a84ff;
       --muted: #6b6b6b
     }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #fff;
+      overflow: hidden;
     }
 
-    .reveal .slides {
-      text-align: center;
+    .swiper {
+      width: 100%;
+      height: 100vh;
     }
 
-    .reveal .slides section {
-      padding: 48px 72px;
+    .swiper-slide {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100%;
+      padding: 60px 80px;
+      text-align: center;
+      background: #fff;
     }
 
-    .reveal .slides section>* {
-      max-width: 90%;
+    @media (max-width: 768px) {
+      .swiper-slide {
+        padding: 30px 20px;
+        justify-content: flex-start;
+        overflow-y: auto;
+      }
     }
 
-    .reveal .slides section ul,
-    .reveal .slides section ol {
-      display: inline-block;
-      text-align: left;
-      max-width: 80%;
+    .slide-content {
+      max-width: 1000px;
+      width: 100%;
     }
 
     h1 {
       font-weight: 700;
-      margin: 0 0 8px 0;
+      margin: 0 0 16px 0;
       text-align: center;
-      font-size: 2.5em;
+      font-size: 3em;
     }
 
     h2 {
-      margin: 0 0 8px 0;
+      margin: 0 0 24px 0;
       font-weight: 600;
       text-align: center;
-      font-size: 1.8em;
+      font-size: 2.2em;
     }
 
     h3 {
-      font-size: 1.3em;
+      font-size: 1.5em;
+      margin-bottom: 12px;
     }
 
     h4 {
-      font-size: 1em;
+      font-size: 1.2em;
       font-weight: 600;
-      margin: 4px 0;
+      margin: 8px 0;
     }
 
     p {
       color: #222;
-      margin: 6px 0;
-      font-size: 18px;
-      line-height: 1.35;
-      text-align: center
+      margin: 12px 0;
+      font-size: 20px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    ul,
+    ol {
+      text-align: left;
+      display: inline-block;
+      max-width: 100%;
     }
 
     li {
       color: #222;
-      margin: 6px 0;
-      font-size: 18px;
-      line-height: 1.35
+      margin: 10px 0;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+        margin-bottom: 12px;
+      }
+
+      h2 {
+        font-size: 1.6em;
+        margin-bottom: 16px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      li {
+        font-size: 16px;
+        margin: 8px 0;
+      }
     }
 
     .muted {
       color: var(--muted);
-      font-size: 18px
+      font-size: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .muted {
+        font-size: 16px;
+      }
     }
 
     .accent {
       color: var(--accent)
     }
 
-    .foot {
-      position: absolute;
-      right: 24px;
-      bottom: 18px;
-      font-size: 13px;
-      color: var(--muted)
-    }
-
     .cols {
       display: flex;
-      gap: 28px;
+      gap: 32px;
       justify-content: center;
       align-items: flex-start;
-      width: 100%
+      width: 100%;
+      margin-top: 20px;
     }
 
     .col {
@@ -110,132 +149,164 @@
       text-align: left
     }
 
-    /* Mobile responsive styles */
     @media (max-width: 768px) {
-      .reveal .slides section {
-        padding: 15px 10px !important;
-      }
-
-      .reveal h1,
-      h1 {
-        font-size: 1.8em !important;
-      }
-
-      .reveal h2,
-      h2 {
-        font-size: 1.3em !important;
-        margin-bottom: 12px !important;
-      }
-
-      .reveal h3,
-      h3 {
-        font-size: 1.1em !important;
-      }
-
-      .reveal h4,
-      h4 {
-        font-size: 0.95em !important;
-      }
-
-      .reveal p,
-      p {
-        font-size: 14px !important;
-        line-height: 1.4 !important;
-      }
-
-      .reveal li,
-      li {
-        font-size: 14px !important;
-        line-height: 1.5 !important;
-        margin: 4px 0 !important;
-      }
-
-      .reveal .muted,
-      .muted {
-        font-size: 14px !important;
-      }
-
       .cols {
-        flex-direction: column !important;
-        gap: 12px !important;
-      }
-
-      .col {
-        width: 100% !important;
-      }
-
-      .reveal .slides section>* {
-        max-width: 100% !important;
-      }
-
-      .reveal .slides section ul,
-      .reveal .slides section ol {
-        max-width: 100% !important;
-        padding-left: 18px !important;
-      }
-
-      table {
-        font-size: 9px !important;
-      }
-
-      table th,
-      table td {
-        padding: 4px 2px !important;
-      }
-
-      .carousel-caption {
-        font-size: 12px !important;
-      }
-
-      .carousel-btn {
-        padding: 5px 10px !important;
-        font-size: 11px !important;
-      }
-
-      strong {
-        font-size: 14px !important;
-      }
-
-      /* Override inline styles on mobile */
-      .col p[style] {
-        font-size: 12px !important;
-      }
-
-      .col h3 {
-        margin-bottom: 8px !important;
+        flex-direction: column;
+        gap: 16px;
       }
     }
 
-    @media (max-width: 480px) {
-      .reveal h1,
-      h1 {
-        font-size: 1.5em !important;
+    /* Timeline styles */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 0;
+      text-align: left;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 40px;
+      bottom: 40px;
+      width: 3px;
+      background: var(--accent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 70px;
+      margin-bottom: 40px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 20px;
+      top: 8px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid white;
+      box-shadow: 0 0 0 3px var(--accent);
+      z-index: 2;
+    }
+
+    .timeline-content {
+      text-align: left;
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 16px;
+    }
+
+    .timeline-header strong {
+      font-size: 22px;
+      color: #222;
+      font-weight: 600;
+    }
+
+    .timeline-time {
+      font-size: 18px;
+      color: var(--muted);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .timeline-content ul {
+      margin: 12px 0 0 0;
+      padding-left: 20px;
+    }
+
+    .timeline-content li {
+      margin: 8px 0;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .timeline {
+        padding: 0;
       }
 
-      .reveal h2,
-      h2 {
-        font-size: 1.2em !important;
+      .timeline::before {
+        left: 12px;
+        top: 10px;
+        bottom: 10px;
+        width: 2px;
       }
 
-      .reveal p,
-      p,
-      .reveal li,
-      li {
-        font-size: 13px !important;
+      .timeline-item {
+        padding-left: 40px;
+        margin-bottom: 24px;
       }
 
-      .col p[style] {
-        font-size: 11px !important;
+      .timeline-dot {
+        left: 5px;
+        top: 4px;
+        width: 14px;
+        height: 14px;
+        border: 2px solid white;
+        box-shadow: 0 0 0 2px var(--accent);
+      }
+
+      .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        margin-bottom: 8px;
+      }
+
+      .timeline-header strong {
+        font-size: 17px;
+        line-height: 1.3;
+      }
+
+      .timeline-time {
+        font-size: 14px;
+      }
+
+      .timeline-content ul {
+        padding-left: 18px;
+        margin-top: 8px;
+      }
+
+      .timeline-content li {
+        font-size: 15px;
+        margin: 6px 0;
       }
     }
 
-    .mono {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
-      background: #f6f7fb;
-      padding: 8px;
-      border-radius: 8px
+    /* Mobile show/hide */
+    .mobile-show {
+      display: none;
     }
 
+    .mobile-hide {
+      display: inline;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-show {
+        display: inline;
+      }
+
+      .mobile-hide {
+        display: none;
+      }
+    }
+
+    /* Carousel */
     .carousel {
       position: relative;
       width: 100%;
@@ -280,13 +351,13 @@
     }
 
     .carousel-btn {
-      padding: 8px 16px;
+      padding: 10px 20px;
       background: var(--accent);
       color: white;
       border: none;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 16px;
       transition: opacity 0.2s
     }
 
@@ -314,516 +385,433 @@
       background: var(--accent)
     }
 
-    /* Timeline styles */
-    .timeline {
-      position: relative;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px 0;
+    table {
+      font-size: 14px;
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 800px;
     }
 
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 30px;
-      top: 40px;
-      bottom: 40px;
-      width: 2px;
-      background: var(--accent);
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-left: 70px;
-      margin-bottom: 40px;
-    }
-
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .timeline-dot {
-      position: absolute;
-      left: 20px;
-      top: 8px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 3px solid white;
-      box-shadow: 0 0 0 2px var(--accent);
-      z-index: 2;
-    }
-
-    .timeline-content {
+    table th,
+    table td {
+      padding: 8px 12px;
       text-align: left;
+      border-bottom: 1px solid #ddd;
     }
 
-    .timeline-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
+    table th {
+      font-weight: 600;
+      background: #f5f5f5;
     }
 
-    .timeline-header strong {
-      font-size: 0.6em;
-      color: #222;
-    }
-
-    .timeline-time {
-      font-size: 0.5em;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    .timeline-content ul {
-      margin: 8px 0 0 0;
-      padding-left: 20px;
-      font-size: 16px;
-    }
-
-    .timeline-content li {
-      margin: 6px 0;
-      font-size: 16px;
-    }
-
-    /* Mobile timeline adjustments */
     @media (max-width: 768px) {
-      .timeline {
-        padding: 5px 5px;
-        max-width: 100%;
-        margin: 0;
+      table {
+        font-size: 12px;
       }
 
-      .timeline::before {
-        left: 18px;
-        top: 10px;
-        bottom: 10px;
-      }
-
-      .timeline-item {
-        padding-left: 50px;
-        margin-bottom: 20px;
-      }
-
-      .timeline-item:last-child {
-        margin-bottom: 0;
-      }
-
-      .timeline-dot {
-        left: 10px;
-        top: 2px;
-        width: 16px;
-        height: 16px;
-        border: 2px solid white;
-      }
-
-      .timeline-header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 8px;
-        margin-bottom: 4px;
-      }
-
-      .timeline-header strong {
-        font-size: 1.15em !important;
-        line-height: 1.2 !important;
-        flex-shrink: 0;
-      }
-
-      .timeline-time {
-        font-size: 0.85em !important;
-        white-space: nowrap;
-        flex-shrink: 0;
-      }
-
-      .timeline-content ul {
-        padding-left: 18px;
-        font-size: 0.85em !important;
-        margin-top: 2px !important;
-        margin-bottom: 0 !important;
-      }
-
-      .timeline-content li {
-        font-size: 0.85em !important;
-        line-height: 1.3 !important;
-        margin: 2px 0 !important;
-      }
-
-      .timeline-content li strong {
-        font-size: 0.85em !important;
+      table th,
+      table td {
+        padding: 6px 8px;
       }
     }
 
-    @media (max-width: 480px) {
-      .timeline {
-        padding: 5px 5px;
-      }
+    /* Swiper pagination */
+    .swiper-pagination-bullet {
+      background: var(--accent);
+      opacity: 0.4;
+    }
 
-      .timeline-item {
-        padding-left: 45px;
-        margin-bottom: 18px;
-      }
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+    }
 
-      .timeline-header strong {
-        font-size: 1.05em !important;
-      }
+    .slide-number {
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      font-size: 14px;
+      color: var(--muted);
+    }
 
-      .timeline-time {
-        font-size: 0.8em !important;
-      }
-
-      .timeline-content ul {
-        font-size: 0.8em !important;
-        padding-left: 16px;
-      }
-
-      .timeline-content li {
-        font-size: 0.8em !important;
-        line-height: 1.3 !important;
-        margin: 2px 0 !important;
-      }
-
-      .timeline-content li strong {
-        font-size: 0.8em !important;
+    @media (max-width: 768px) {
+      .slide-number {
+        bottom: 10px;
+        right: 15px;
+        font-size: 12px;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="reveal">
-    <div class="slides">
-      <section>
-        <h1>VibeBrowser</h1>
-        <p class="muted">Agentic Browser — Unlike AI chatbots that assist browsing, VibeBrowser is an autonomous web agent that
-          takes full control. Just say "book my flight to NYC" or "find me the cheapest insurance" and watch as it
-          researches, compares, navigates multiple sites, and completes entire workflows—all on its own.</p>
-      </section>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
 
-      <section>
-        <h2>About me</h2>
-        <ul>
-          <li><a href="https://linkedin.com/in/dzianisv">I'm Dzianis Vashchuk</a>. Ex-Coinbase — 3 years.</li>
-          <li>I built LLM+agent tooling at Coinbase to help on-call engineers: integrations with Databricks, Datadog,
-            GitHub, Jira.</li>
-          <li>After experimenting with Claude‑Code + Opus‑4 and seeing how LLMs can drive automation, I decided to focus
-            on browser automation.</li>
-          <li>I know how to build reliable automation systems and deal with ops/failure modes.</li>
-          <li>I'm full-time on VibeBrowser and shipping working software today.</li>
-        </ul>
-      </section>
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <h1>VibeBrowser</h1>
+          <p class="muted">Agentic Browser — Unlike AI chatbots that assist browsing, VibeBrowser is an autonomous web
+            agent that
+            takes full control. Just say "book my flight to NYC" or "find me the cheapest insurance" and watch as it
+            researches, compares, navigates multiple sites, and completes entire workflows—all on its own.</p>
+        </div>
+      </div>
 
-      <section>
-        <h2>The problem — plain facts</h2>
-        <ul>
-          <li>Browsers are passive: most workflows are manual (search → click → copy → repeat).</li>
-          <li>LLMs reason well but can’t reliably *act* in browser context at scale today.</li>
-          <li>No reliable product executes end‑to‑end browser workflows for real users.</li>
-        </ul>
-      </section>
+      <!-- Slide 2 -->
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <h2>About me</h2>
+          <ul>
+            <li><a href="https://linkedin.com/in/dzianisv">I'm Dzianis Vashchuk</a>. Ex-Coinbase — 3 years.</li>
+            <li>I built LLM+agent tooling at Coinbase to help on-call engineers: integrations with Databricks, Datadog,
+              GitHub, Jira.</li>
+            <li>After experimenting with Claude‑Code + Opus‑4 and seeing how LLMs can drive automation, I decided to
+              focus
+              on browser automation.</li>
+            <li>I know how to build reliable automation systems and deal with ops/failure modes.</li>
+            <li>I'm full-time on VibeBrowser and shipping working software today.</li>
+          </ul>
+        </div>
+      </div>
 
-      <section>
-        <h2>The product — what VibeBrowser does</h2>
-        <ul>
-          <li>It's an agentic browser: not just suggestions, it executes workflows inside the browser.</li>
-          <li>Target automations: booking, LinkedIn outreach, travel planning, investment research, GitHub PR review,
-            content ops.</li>
-          <li>MVP capabilities (2-3 months):
-            <ul>
-              <li>✅ Investment research: Analyze market trends, identify undervalued stocks, gather metrics</li>
-              <li>🚀 Email & calendar management: Summarize inbox, schedule meetings</li>
-              <li>B2B lead generation: Find employees, extract contacts, automate outreach</li>
-              <li>Travel booking: Search flights, compare prices, complete purchase</li>
-            </ul>
-          </li>
-          <li>Delivery: extension (MVP) → component/Chromium build → cloud agent for long jobs.</li>
-        </ul>
-      </section>
+      <!-- Slide 3 -->
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <h2>The problem — plain facts</h2>
+          <ul>
+            <li>Browsers are passive: most workflows are manual (search → click → copy → repeat).</li>
+            <li>LLMs reason well but can't reliably *act* in browser context at scale today.</li>
+            <li>No reliable product executes end‑to‑end browser workflows for real users.</li>
+          </ul>
+        </div>
+      </div>
 
-      <section>
-        <h2>Why In-Browser vs. Cloud-Hosted Agents?</h2>
-        <p style="font-size: 16px; margin-bottom: 12px;">Cloud agents (like OpenAI's browser agent) face critical limitations:</p>
-        <ul>
-          <li><strong>Geo/IP blocking:</strong> Cloud IPs are blocked. Residential IPs required for real-world sites.</li>
-          <li><strong>Limited context:</strong> No access to user's browsing history, saved credentials, or sessions.</li>
-          <li><strong>CAPTCHA & anti-bot:</strong> Cloud browsers get flagged and blocked by anti-bot systems.</li>
-          <li><strong>Modern auth:</strong> Passkey authentication requires local device—impossible in cloud.</li>
-          <li><strong>Privacy:</strong> User data stays local, not sent to cloud infrastructure.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Roadmap & Business Plan</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <strong>Phase 1: MVP, Google Chrome Extension and basic automation</strong>
-                <span class="timeline-time">0-3 months</span>
-              </div>
+      <!-- Slide 4 -->
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <h2>The product — what VibeBrowser does</h2>
+          <ul>
+            <li>It's an agentic browser: not just suggestions, it executes workflows inside the browser.</li>
+            <li>Target automations: booking, LinkedIn outreach, travel planning, investment research, GitHub PR review,
+              content ops.</li>
+            <li>MVP capabilities (2-3 months):
               <ul>
-                <li>Chrome AI Co-Pilot, auth & billing</li>
-                <li><strong>Pricing:</strong> $25</li>
-                <li><strong>Target:</strong> 500 users → $12.5k MRR</li>
+                <li>✅ Investment research: Analyze market trends, identify undervalued stocks, gather metrics</li>
+                <li>🚀 Email & calendar management: Summarize inbox, schedule meetings</li>
+                <li>B2B lead generation: Find employees, extract contacts, automate outreach</li>
+                <li>Travel booking: Search flights, compare prices, complete purchase</li>
               </ul>
+            </li>
+            <li>Delivery: extension (MVP) → component/Chromium build → cloud agent for long jobs.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <h2>Why In-Browser vs. Cloud-Hosted Agents?</h2>
+          <p style="font-size: 18px; margin-bottom: 16px;">Cloud agents (like OpenAI's browser agent) face critical
+            limitations:</p>
+          <ul>
+            <li><strong>Geo/IP blocking:</strong> Cloud IPs are blocked. Residential IPs required for real-world sites.
+            </li>
+            <li><strong>Limited context:</strong> No access to user's browsing history, saved credentials, or sessions.
+            </li>
+            <li><strong>CAPTCHA & anti-bot:</strong> Cloud browsers get flagged and blocked by anti-bot systems.</li>
+            <li><strong>Modern auth:</strong> Passkey authentication requires local device—impossible in cloud.</li>
+            <li><strong>Privacy:</strong> User data stays local, not sent to cloud infrastructure.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Slide 6: Roadmap -->
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <h2>Roadmap & Business Plan</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <strong><span class="mobile-hide">Phase 1: MVP, Google Chrome Extension and basic automation</span><span
+                      class="mobile-show">Phase 1: Chrome Extension MVP</span></strong>
+                  <span class="timeline-time">0-3 months</span>
+                </div>
+                <ul>
+                  <li>Chrome AI Co-Pilot, auth & billing</li>
+                  <li><strong>Pricing:</strong> $25</li>
+                  <li><strong>Target:</strong> 500 users → $12.5k MRR</li>
+                </ul>
+              </div>
             </div>
-          </div>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <strong>Phase 2: Android & iOS Apps & Privacy Focus</strong>
-                <span class="timeline-time">3-6 months</span>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <strong><span class="mobile-hide">Phase 2: Android & iOS Apps & Privacy Focus</span><span
+                      class="mobile-show">Phase 2: Mobile Apps & Privacy</span></strong>
+                  <span class="timeline-time">3-6 months</span>
+                </div>
+                <ul>
+                  <li>Chromium fork with integrated extension</li>
+                  <li>Embedded Gemini Nano for local AI</li>
+                  <li><strong>MCP Support:</strong> Gmail, Calendar, Slack, Drive, GitHub, Notion</li>
+                  <li><strong>Target:</strong> 1000 users → $25k MRR</li>
+                </ul>
               </div>
-              <ul>
-                <li>Focus on mobile: Chromium fork with integrated component extension</li>
-                <li>Focus on privacy: Integration with embedded Google Chrome / AI Gemini Nano that will allow running the extension locally</li>
-                <li><strong>MCP Support: </strong>to add integration with Gmail, Google Calendar, Slack, Google Drive, Github, Github, Notion, etc</li>
-                <li><strong>Target:</strong> 1000 users → $25k MRR</li>
-              </ul>
             </div>
-          </div>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <strong>Phase 3: Cloud Agent & Privacy Focus</strong>
-                <span class="timeline-time">6+ months</span>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <strong><span class="mobile-hide">Phase 3: Cloud Agent & Privacy Focus</span><span
+                      class="mobile-show">Phase 3: Cloud & Enterprise</span></strong>
+                  <span class="timeline-time">6+ months</span>
+                </div>
+                <ul>
+                  <li>TEE/Security Enclaves for LLM privacy</li>
+                  <li>Desktop browser with containerized workflows</li>
+                  <li>Headless automation & enterprise API</li>
+                  <li><strong>Scale:</strong> Multi-tenant infrastructure</li>
+                </ul>
               </div>
-              <ul>
-                <li>Focus on privacy: TEE/Security Enclaves to run LLM models (WE DO NOT SELL YOUR DATA, HERE IS A TEE PROOF)</li>
-                <li>Desktop browser with running workflows inside a container</li>
-                <li>Headless automation & enterprise API</li>
-                <li><strong>Scale:</strong> Multi-tenant infrastructure</li>
-              </ul>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section>
-        <h2>Why Vibe AI Browser Co-Pilot?</h2>
-        <ul>
-          <li>While competitors like Comet collect user data, we prioritize privacy above all. This means:
-            <div>- Our AI agent integrates with Gemini Nano, embedded directly in Google Chrome. No external LLMs required—ensuring absolute privacy and offline functionality.
-              <span title="Gemini Nano can now be embedded directly within Google Chrome, and is accessible to extensions and web apps through the window.ai interface in supported Chrome builds. This means Chrome provides on-device AI capabilities, so developers can use Gemini Nano for local inference—without cloud dependencies—by calling the built-in APIs exposed on window.ai.">ℹ️</span>
-            </div>
-            <div>
-              - We're developing self-hosted LLMs (Llama, Qwen, Mistral) on <a href="https://azure.microsoft.com/en-us/solutions/confidential-compute"><strong>TEE</strong> machines/Confidential computing</a>.
-              This provides open-source backend code, giving customers cryptographic proof that our agent operates with APIs that neither log, store, nor sell data.
-              <span title="To guarantee privacy, run the inference code inside Azure’s Trusted Execution Environments (TEEs). Azure offers Confidential VMs (based on AMD SEV-SNP or Intel TDX) and Confidential Containers (ACI/AKS) that encrypt all data and code at the hardware level.">ℹ️</span>
-            </div>
-            <div>
-              - No single agent excels at complex tasks. We've tested OpenAI Agent, Perplexity Comet, Composite, and BrowserOS—there's ample room for innovation and competition.</div>
-          </li>
-          <li><strong>DOM-based vs. Screenshot:</strong> We support two modes: Indexed DOM Nodes + Vision. Vision enhances quality but isn't mandatory. Without vision models, our AI copilot seamlessly works with the local Gemini Nano embedded in Google Chrome.</li>
-          <li><strong>Stealth-mode origins:</strong> Why build when Comet and Composite exist? We started development before their announcements and identified critical gaps in their offerings.</li>
-          <li><strong>LLM provider freedom:</strong> Choose your preferred LLM and provider—OpenAI, Gemini, Anthropic, OpenRouter, or locally hosted options for maximum privacy. We're ready for enterprise integrations prioritizing data protection.</li>
-        </ul>
-      </section>
+      <!-- Slide 7: Why Vibe -->
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <h2>Why Vibe AI Browser Co-Pilot?</h2>
+          <ul>
+            <li>While competitors like Comet collect user data, we prioritize privacy above all. This means:
+              <div style="margin: 8px 0; font-size: 18px;">- Our AI agent integrates with Gemini Nano, embedded directly in Google Chrome. No external LLMs required—ensuring absolute privacy and offline functionality. ℹ️</div>
+              <div style="margin: 8px 0; font-size: 18px;">
+                - We're developing self-hosted LLMs (Llama, Qwen, Mistral) on <a href="https://azure.microsoft.com/en-us/solutions/confidential-compute"><strong>TEE</strong> machines/Confidential computing</a>.
+                This provides open-source backend code, giving customers cryptographic proof that our agent operates with APIs that neither log, store, nor sell data. ℹ️
+              </div>
+              <div style="margin: 8px 0; font-size: 18px;">
+                - No single agent excels at complex tasks. We've tested OpenAI Agent, Perplexity Comet, Composite, and BrowserOS—there's ample room for innovation and competition.</div>
+            </li>
+            <li><strong>DOM-based vs. Screenshot:</strong> We support two modes: Indexed DOM Nodes + Vision. Vision enhances quality but isn't mandatory. Without vision models, our AI copilot seamlessly works with the local Gemini Nano embedded in Google Chrome.</li>
+            <li><strong>Stealth-mode origins:</strong> Why build when Comet and Composite exist? We started development before their announcements and identified critical gaps in their offerings.</li>
+            <li><strong>LLM provider freedom:</strong> Choose your preferred LLM and provider—OpenAI, Gemini, Anthropic, OpenRouter, or locally hosted options for maximum privacy. We're ready for enterprise integrations prioritizing data protection.</li>
+          </ul>
+        </div>
+      </div>
 
-      <section>
-        <h2>Early Demos</h2>
-        <div class="carousel" id="demoCarousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <video controls>
-                <source src="demos/value-investing-market-research.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-              <div class="carousel-caption">
-                <img src="https://www.forbes.com/favicon.ico" width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
-                Vibe AI Agent performing Stock Market Research
+      <!-- Slide 8: Early Demos -->
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <h2>Early Demos</h2>
+          <div class="carousel" id="demoCarousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <video controls>
+                  <source src="demos/value-investing-market-research.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <div class="carousel-caption">
+                  <img src="https://www.forbes.com/favicon.ico" width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
+                  Vibe AI Agent performing Stock Market Research
+                </div>
+              </div>
+              <div class="carousel-item">
+                <video controls>
+                  <source src="demos/google-calendar-demo.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <div class="carousel-caption">
+                  <img src="https://calendar.google.com/googlecalendar/images/favicons_2020q4/calendar_13.ico" width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
+                  Vibe AI Agent summarizes Google Calendar events for today
+                </div>
+              </div>
+              <div class="carousel-item">
+                <video controls>
+                  <source src="demos/linkedin-demo.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <div class="carousel-caption">
+                  <img src="https://www.linkedin.com/favicon.ico" width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
+                  Vibe AI Agent performing LinkedIn outreach
+                </div>
               </div>
             </div>
-            <div class="carousel-item">
-              <video controls>
-                <source src="demos/google-calendar-demo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-              <div class="carousel-caption">
-                <img src="https://calendar.google.com/googlecalendar/images/favicons_2020q4/calendar_13.ico" width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
-                Vibe AI Agent summarizes Google Calendar events for today
-              </div>
+            <div class="carousel-controls">
+              <button class="carousel-btn" onclick="previousSlide()">Previous</button>
+              <button class="carousel-btn" onclick="nextSlide()">Next</button>
             </div>
-            <div class="carousel-item">
-              <video controls>
-                <source src="demos/linkedin-demo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-              <div class="carousel-caption">
-                <img src="https://www.linkedin.com/favicon.ico" width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
-                Vibe AI Agent performing LinkedIn outreach
-              </div>
+            <div class="carousel-indicators">
+              <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
+              <div class="carousel-indicator" onclick="goToSlide(1)"></div>
+              <div class="carousel-indicator" onclick="goToSlide(2)"></div>
             </div>
-          </div>
-          <div class="carousel-controls">
-            <button class="carousel-btn" onclick="previousSlide()">Previous</button>
-            <button class="carousel-btn" onclick="nextSlide()">Next</button>
-          </div>
-          <div class="carousel-indicators">
-            <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
-            <div class="carousel-indicator" onclick="goToSlide(1)"></div>
-            <div class="carousel-indicator" onclick="goToSlide(2)"></div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section>
-        <h2>Current Status</h2>
-        <ul>
-          <li>Extension MVP — functional, shipping updates weekly (see demos)</li>
-          <li>Chromium-based Vibe Browser app — build infrastructure complete, component integrated</li>
-          <li>Cloud agent — architecture designed, prototyping next</li>
-          <li>Team: 1 full-time, 2 part-time engineers</li>
-        </ul>
-      </section>
+      <!-- Slide 9: Current Status -->
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <h2>Current Status</h2>
+          <ul>
+            <li>Extension MVP — functional, shipping updates weekly (see demos)</li>
+            <li>Chromium-based Vibe Browser app — build infrastructure complete, component integrated</li>
+            <li>Cloud agent — architecture designed, prototyping next</li>
+            <li>Team: 1 full-time, 2 part-time engineers</li>
+          </ul>
+        </div>
+      </div>
 
-      <section>
-        <h2>Ask</h2>
-        <ul>
-          <li><strong>Capital to cover infrastructure costs:</strong> LLM APIs for hundreds of workflows/day add up quickly, especially for advanced models.</li>
-          <li><strong>Capital</strong> allows <strong>us to hire engineers to move faster</strong>! I need help with Android & iOS development</li>
-          <li>Advice and introductions on GTM and initial distribution channels.</li>
-          <li>Partnerships with early enterprise users — sales/research/recruiting teams.</li>
-        </ul>
-      </section>
+      <!-- Slide 10: Ask -->
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <h2>Ask</h2>
+          <ul>
+            <li><strong>Capital to cover infrastructure costs:</strong> LLM APIs for hundreds of workflows/day add up quickly, especially for advanced models.</li>
+            <li><strong>Capital</strong> allows <strong>us to hire engineers to move faster</strong>! I need help with Android & iOS development</li>
+            <li>Advice and introductions on GTM and initial distribution channels.</li>
+            <li>Partnerships with early enterprise users — sales/research/recruiting teams.</li>
+          </ul>
+        </div>
+      </div>
 
-      <section>
-        <h2>Burn Rate Breakdown</h2>
-        <table style="font-size: 12px; margin-top: 10px;">
-          <thead>
-            <tr>
-              <th>Category</th>
-              <th>Description</th>
-              <th>Yearly Cost (USD)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Salaries</strong></td>
-              <td>Dzianis @ San Francisco, CA - Component Extension Core</td>
-              <td>$175,000</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Dmitriy Kastenich @ Bergen, Norway - Google Chrome internals</td>
-              <td>$150,000</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Dzmitriy Dalenka @ Vancouver, BC - Machine Learning, Agent workflow optimization</td>
-              <td>$150,000</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Anton @ Batumi, Georgia - Component Extension UI/UX frontend</td>
-              <td>$100,000</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Kate @ Warsaw, Poland - UI/UX Designer</td>
-              <td>$50,000</td>
-            </tr>
-            <tr>
-              <td><strong>Subtotal (salaries)</strong></td>
-              <td></td>
-              <td><strong>$625,000</strong></td>
-            </tr>
-            <tr>
-              <td><strong>Infrastructure</strong></td>
-              <td>Cloud, LLM APIs, dev tools</td>
-              <td>$50,000</td>
-            </tr>
-            <tr>
-              <td><strong>Team Operations</strong></td>
-              <td>Co-working, offsites, medical insurance</td>
-              <td>$40,000</td>
-            </tr>
-            <tr>
-              <td><strong>Corporate & Legal</strong></td>
-              <td>C-corp maintenance, payroll, tax, compliance</td>
-              <td>$7,000–$11,000</td>
-            </tr>
-            <tr>
-              <td><strong>Software & Tools</strong></td>
-              <td>Claude Code, Google Workspace, misc</td>
-              <td>$5,200</td>
-            </tr>
-            <tr>
-              <td><strong>Total Annual Burn</strong></td>
-              <td></td>
-              <td><strong>~$727,200 – $731,200</strong></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+      <!-- Slide 11: Burn Rate Breakdown -->
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <h2>Burn Rate Breakdown</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Yearly Cost (USD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Salaries</strong></td>
+                <td>Dzianis @ San Francisco, CA - Component Extension Core</td>
+                <td>$175,000</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Dmitriy Kastenich @ Bergen, Norway - Google Chrome internals</td>
+                <td>$150,000</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Dzmitriy Dalenka @ Vancouver, BC - Machine Learning, Agent workflow optimization</td>
+                <td>$150,000</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Anton @ Batumi, Georgia - Component Extension UI/UX, payments and LLM backend</td>
+                <td>$100,000</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Kate @ Warsaw, Poland - UI/UX Designer</td>
+                <td>$50,000</td>
+              </tr>
+              <tr>
+                <td><strong>Subtotal (salaries)</strong></td>
+                <td></td>
+                <td><strong>$625,000</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Infrastructure</strong></td>
+                <td>Cloud, LLM APIs, dev tools</td>
+                <td>$50,000</td>
+              </tr>
+              <tr>
+                <td><strong>Team Operations</strong></td>
+                <td>Co-working, offsites, medical insurance</td>
+                <td>$40,000</td>
+              </tr>
+              <tr>
+                <td><strong>Corporate & Legal</strong></td>
+                <td>C-corp maintenance, payroll, tax, compliance</td>
+                <td>$7,000–$11,000</td>
+              </tr>
+              <tr>
+                <td><strong>Software & Tools</strong></td>
+                <td>Claude Code, Google Workspace, misc</td>
+                <td>$5,200</td>
+              </tr>
+              <tr>
+                <td><strong>Total Annual Burn</strong></td>
+                <td></td>
+                <td><strong>~$727,200 – $731,200</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
+      <!-- Slide 12: The Bigger Vision -->
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <h2>The Bigger Vision</h2>
+          <ul>
+            <li><strong>Browser co-pilot is just the beginning:</strong> It's the first step toward a full-featured AI assistant that handles your daily routine tasks.</li>
+            <li><strong>Beyond browsing:</strong> Offload calendar management, email triage, research, scheduling, data entry, and repetitive workflows.</li>
+            <li><strong>Agentic teams:</strong> Multiple AI agents collaborating to solve complex, multi-step workflows across different platforms.</li>
+            <li><strong>Productivity reimagined:</strong> The team has a broader vision for how AI can fundamentally improve how people work—browser co-pilot is iteration one.</li>
+          </ul>
+        </div>
+      </div>
 
-      <section>
-        <h2>The Bigger Vision</h2>
-        <ul>
-          <li><strong>Browser co-pilot is just the beginning:</strong> It's the first step toward a full-featured AI assistant that handles your daily routine tasks.</li>
-          <li><strong>Beyond browsing:</strong> Offload calendar management, email triage, research, scheduling, data entry, and repetitive workflows.</li>
-          <li><strong>Agentic teams:</strong> Multiple AI agents collaborating to solve complex, multi-step workflows across different platforms.</li>
-          <li><strong>Productivity reimagined:</strong> The team has a broader vision for how AI can fundamentally improve how people work—browser co-pilot is iteration one.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Interested?</h2>
-        <p>Check out our Twitter and LinkedIn pages for more video demos</p>
-        <ol>
-          <li><a href="mailto:info@vibebrowser.app">info@vibebrowser.app</a></li>
-          <li><a href="https://linkedin.com/company/vibebrowser">linkedin.com/company/vibebrowser</a></li>
-          <li><a href="https://x.com/vibebrowserapp">x.com/vibebrowserapp</a></li>
-          <li><a href="https://vibebrowser.app">vibebrowser.app</a></li>
-      
-          <li><a href="https://calendly.com/dzianisv/30min">Schedule a call — calendly.com/dzianisv/30min</a></li>
-        </ol>
-
-      </section>
+      <!-- Slide 13: Interested? -->
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <h2>Interested?</h2>
+          <p>Check out our Twitter and LinkedIn pages for more video demos</p>
+          <ol>
+            <li><a href="mailto:info@vibebrowser.app">info@vibebrowser.app</a></li>
+            <li><a href="https://linkedin.com/company/vibebrowser">linkedin.com/company/vibebrowser</a></li>
+            <li><a href="https://x.com/vibebrowserapp">x.com/vibebrowserapp</a></li>
+            <li><a href="https://vibebrowser.app">vibebrowser.app</a></li>
+            <li><a href="https://calendly.com/dzianisv/30min">Schedule a call — calendly.com/dzianisv/30min</a></li>
+          </ol>
+        </div>
+      </div>
 
     </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    // Enable PDF export by adding ?print-pdf to the URL
-    // e.g., https://pitch.vibebrowser.app/?print-pdf
-    if (window.location.search.match(/print-pdf/gi)) {
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/css/print/pdf.min.css';
-      document.getElementsByTagName('head')[0].appendChild(link);
-    }
-
-    // Detect if mobile
-    const isMobile = window.innerWidth <= 768;
-
-    Reveal.initialize({
-      hash: true,
-      slideNumber: true,
-      width: isMobile ? '100%' : 1200,
-      height: isMobile ? '100%' : 768,
-      margin: isMobile ? 0.05 : 0.1,
-      minScale: isMobile ? 1 : 0.2,
-      maxScale: isMobile ? 1 : 2.0,
-      center: true,  // Center slides vertically
-      transition: 'fade',
-      // PDF export settings
-      pdfMaxPagesPerSlide: 1,
-      pdfSeparateFragments: false
+    const swiper = new Swiper('.mySwiper', {
+      direction: 'horizontal',
+      loop: false,
+      keyboard: {
+        enabled: true,
+      },
+      mousewheel: false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      hashNavigation: {
+        watchState: true,
+      },
     });
 
-    // Carousel functionality
+    // Carousel functionality for demo videos
     let currentSlide = 0;
     const slides = document.querySelectorAll('.carousel-item');
     const indicators = document.querySelectorAll('.carousel-indicator');
