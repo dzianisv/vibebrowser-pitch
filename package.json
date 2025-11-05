@@ -3,6 +3,23 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "netlify-plugin-git-lfs": "^1.0.4"
-  }
+    "puppeteer": "^23.0.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pdf": "node generate-pdf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dzianisv/vibebrowser-pitch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dzianisv/vibebrowser-pitch/issues"
+  },
+  "homepage": "https://github.com/dzianisv/vibebrowser-pitch#readme",
+  "description": ""
 }
