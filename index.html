@@ -498,31 +498,13 @@
               content ops.</li>
             <li>MVP capabilities (2-3 months):
               <ul>
-                <li>✅ Investment research: Analyze market trends, identify undervalued stocks, gather metrics</li>
-                <li>🚀 Email & calendar management: Summarize inbox, schedule meetings</li>
                 <li>B2B lead generation: Find employees, extract contacts, automate outreach</li>
                 <li>Travel booking: Search flights, compare prices, complete purchase</li>
+                <li>Investment research: Analyze market trends, identify undervalued stocks, gather metrics</li>
+                <li>Email & calendar management: Summarize inbox, schedule meetings</li>
               </ul>
             </li>
             <li>Delivery: extension (MVP) → component/Chromium build → cloud agent for long jobs.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Slide 5 -->
-      <div class="swiper-slide">
-        <div class="slide-content">
-          <h2>Why In-Browser vs. Cloud-Hosted Agents?</h2>
-          <p style="font-size: 18px; margin-bottom: 16px;">Cloud agents (like OpenAI's browser agent) face critical
-            limitations:</p>
-          <ul>
-            <li><strong>Geo/IP blocking:</strong> Cloud IPs are blocked. Residential IPs required for real-world sites.
-            </li>
-            <li><strong>Limited context:</strong> No access to user's browsing history, saved credentials, or sessions.
-            </li>
-            <li><strong>CAPTCHA & anti-bot:</strong> Cloud browsers get flagged and blocked by anti-bot systems.</li>
-            <li><strong>Modern auth:</strong> Passkey authentication requires local device—impossible in cloud.</li>
-            <li><strong>Privacy:</strong> User data stays local, not sent to cloud infrastructure.</li>
           </ul>
         </div>
       </div>
@@ -536,8 +518,8 @@
               <div class="timeline-dot"></div>
               <div class="timeline-content">
                 <div class="timeline-header">
-                  <strong><span class="mobile-hide">Phase 1: MVP, Google Chrome Extension and basic automation</span><span
-                      class="mobile-show">Phase 1: Chrome Extension MVP</span></strong>
+                  <strong><span class="mobile-hide">Phase 1: MVP, Google Chrome Extension and basic
+                      automation</span><span class="mobile-show">Phase 1: Chrome Extension MVP</span></strong>
                   <span class="timeline-time">0-3 months</span>
                 </div>
                 <ul>
@@ -591,17 +573,26 @@
           <h2>Why Vibe AI Browser Co-Pilot?</h2>
           <ul>
             <li>While competitors like Comet collect user data, we prioritize privacy above all. This means:
-              <div style="margin: 8px 0; font-size: 18px;">- Our AI agent integrates with Gemini Nano, embedded directly in Google Chrome. No external LLMs required—ensuring absolute privacy and offline functionality. ℹ️</div>
-              <div style="margin: 8px 0; font-size: 18px;">
-                - We're developing self-hosted LLMs (Llama, Qwen, Mistral) on <a href="https://azure.microsoft.com/en-us/solutions/confidential-compute"><strong>TEE</strong> machines/Confidential computing</a>.
-                This provides open-source backend code, giving customers cryptographic proof that our agent operates with APIs that neither log, store, nor sell data. ℹ️
+              <div style="margin: 8px 0; font-size: 18px;">- Our AI agent integrates with Gemini Nano, embedded directly
+                in Google Chrome. No external LLMs required—ensuring absolute privacy and offline functionality. ℹ️
               </div>
               <div style="margin: 8px 0; font-size: 18px;">
-                - No single agent excels at complex tasks. We've tested OpenAI Agent, Perplexity Comet, Composite, and BrowserOS—there's ample room for innovation and competition.</div>
+                - We're developing self-hosted LLMs (Llama, Qwen, Mistral) on <a
+                  href="https://azure.microsoft.com/en-us/solutions/confidential-compute"><strong>TEE</strong>
+                  machines/Confidential computing</a>.
+                This provides open-source backend code, giving customers cryptographic proof that our agent operates
+                with APIs that neither log, store, nor sell data. ℹ️
+              </div>
+              <div style="margin: 8px 0; font-size: 18px;">
+                - No single agent excels at complex tasks. We've tested OpenAI Agent, Perplexity Comet, Composite, and
+                BrowserOS—there's ample room for innovation and competition.</div>
             </li>
-            <li><strong>DOM-based vs. Screenshot:</strong> We support two modes: Indexed DOM Nodes + Vision. Vision enhances quality but isn't mandatory. Without vision models, our AI copilot seamlessly works with the local Gemini Nano embedded in Google Chrome.</li>
-            <li><strong>Stealth-mode origins:</strong> Why build when Comet and Composite exist? We started development before their announcements and identified critical gaps in their offerings.</li>
-            <li><strong>LLM provider freedom:</strong> Choose your preferred LLM and provider—OpenAI, Gemini, Anthropic, OpenRouter, or locally hosted options for maximum privacy. We're ready for enterprise integrations prioritizing data protection.</li>
+            <li><strong>DOM-based vs. Screenshot:</strong> We support two modes: Indexed DOM Nodes + Vision. Vision
+              enhances quality but isn't mandatory. Without vision models, our AI copilot seamlessly works with the
+              local Gemini Nano embedded in Google Chrome.</li>
+            <li><strong>LLM provider freedom:</strong> Choose your preferred LLM and provider—OpenAI, Gemini, Anthropic,
+              OpenRouter, or locally hosted options for maximum privacy. We're ready for enterprise integrations
+              prioritizing data protection.</li>
           </ul>
         </div>
       </div>
@@ -618,7 +609,8 @@
                   Your browser does not support the video tag.
                 </video>
                 <div class="carousel-caption">
-                  <img src="https://www.forbes.com/favicon.ico" width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
+                  <img src="https://www.forbes.com/favicon.ico" width="16" height="16"
+                    style="vertical-align: middle; margin-right: 4px;">
                   Vibe AI Agent performing Stock Market Research
                 </div>
               </div>
@@ -628,7 +620,8 @@
                   Your browser does not support the video tag.
                 </video>
                 <div class="carousel-caption">
-                  <img src="https://calendar.google.com/googlecalendar/images/favicons_2020q4/calendar_13.ico" width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
+                  <img src="https://calendar.google.com/googlecalendar/images/favicons_2020q4/calendar_13.ico"
+                    width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
                   Vibe AI Agent summarizes Google Calendar events for today
                 </div>
               </div>
@@ -638,7 +631,8 @@
                   Your browser does not support the video tag.
                 </video>
                 <div class="carousel-caption">
-                  <img src="https://www.linkedin.com/favicon.ico" width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
+                  <img src="https://www.linkedin.com/favicon.ico" width="16" height="16"
+                    style="vertical-align: middle; margin-right: 4px;">
                   Vibe AI Agent performing LinkedIn outreach
                 </div>
               </div>
@@ -674,8 +668,10 @@
         <div class="slide-content">
           <h2>Ask</h2>
           <ul>
-            <li><strong>Capital to cover infrastructure costs:</strong> LLM APIs for hundreds of workflows/day add up quickly, especially for advanced models.</li>
-            <li><strong>Capital</strong> allows <strong>us to hire engineers to move faster</strong>! I need help with Android & iOS development</li>
+            <li><strong>Capital to cover infrastructure costs:</strong> LLM APIs for hundreds of workflows/day add up
+              quickly, especially for advanced models.</li>
+            <li><strong>Capital</strong> allows <strong>us to hire engineers to move faster</strong>! I need help with
+              Android & iOS development</li>
             <li>Advice and introductions on GTM and initial distribution channels.</li>
             <li>Partnerships with early enterprise users — sales/research/recruiting teams.</li>
           </ul>
@@ -698,7 +694,7 @@
               <tr>
                 <td><strong>Salaries</strong></td>
                 <td>Dzianis @ San Francisco, CA - Component Extension Core</td>
-                <td>$175,000</td>
+                <td>$120,000</td>
               </tr>
               <tr>
                 <td></td>
@@ -723,7 +719,7 @@
               <tr>
                 <td><strong>Subtotal (salaries)</strong></td>
                 <td></td>
-                <td><strong>$625,000</strong></td>
+                <td><strong>$570,000</strong></td>
               </tr>
               <tr>
                 <td><strong>Infrastructure</strong></td>
@@ -748,7 +744,7 @@
               <tr>
                 <td><strong>Total Annual Burn</strong></td>
                 <td></td>
-                <td><strong>~$727,200 – $731,200</strong></td>
+                <td><strong>~$672,200 – $676,200</strong></td>
               </tr>
             </tbody>
           </table>
@@ -760,10 +756,14 @@
         <div class="slide-content">
           <h2>The Bigger Vision</h2>
           <ul>
-            <li><strong>Browser co-pilot is just the beginning:</strong> It's the first step toward a full-featured AI assistant that handles your daily routine tasks.</li>
-            <li><strong>Beyond browsing:</strong> Offload calendar management, email triage, research, scheduling, data entry, and repetitive workflows.</li>
-            <li><strong>Agentic teams:</strong> Multiple AI agents collaborating to solve complex, multi-step workflows across different platforms.</li>
-            <li><strong>Productivity reimagined:</strong> The team has a broader vision for how AI can fundamentally improve how people work—browser co-pilot is iteration one.</li>
+            <li><strong>Browser co-pilot is just the beginning:</strong> It's the first step toward a full-featured AI
+              assistant that handles your daily routine tasks.</li>
+            <li><strong>Beyond browsing:</strong> Offload calendar management, email triage, research, scheduling, data
+              entry, and repetitive workflows.</li>
+            <li><strong>Agentic teams:</strong> Multiple AI agents collaborating to solve complex, multi-step workflows
+              across different platforms.</li>
+            <li><strong>Productivity reimagined:</strong> The team has a broader vision for how AI can fundamentally
+              improve how people work—browser co-pilot is iteration one.</li>
           </ul>
         </div>
       </div>
