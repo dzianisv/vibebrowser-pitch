@@ -9,7 +9,7 @@ const fs = require('fs');
   console.log('Launching browser...');
   const browser = await puppeteer.launch({
     headless: true,
-    executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
 
   const page = await browser.newPage();
@@ -125,7 +125,7 @@ const fs = require('fs');
 
   const browser2 = await puppeteer.launch({
     headless: true,
-    executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
 
   const page2 = await browser2.newPage();
