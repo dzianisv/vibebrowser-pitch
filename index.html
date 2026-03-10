@@ -4,12 +4,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>VibeBrowser — Pitch Deck</title>
+  <title>Vibe Browser - Pitch Deck v1.2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <style>
     :root {
-      --accent: #0a84ff;
-      --muted: #6b6b6b
+      --bg: #090e1a;
+      --bg-soft: #11182a;
+      --panel: #141f36;
+      --panel-2: #1a2947;
+      --text: #f4f8ff;
+      --muted: #a6b4d2;
+      --accent: #55d9ff;
+      --accent-2: #6fffb0;
+      --danger: #ff8d8d;
+      --border: rgba(134, 166, 230, 0.35);
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
     }
 
     * {
@@ -19,8 +31,12 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: #fff;
+      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(85, 217, 255, 0.18), transparent 35%),
+        radial-gradient(circle at 90% 85%, rgba(111, 255, 176, 0.12), transparent 42%),
+        var(--bg);
+      color: var(--text);
       overflow: hidden;
     }
 
@@ -30,1118 +46,613 @@
     }
 
     .swiper-slide {
+      padding: 58px 72px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      padding: 60px 80px;
-      text-align: center;
-      background: #fff;
-    }
-
-    @media (max-width: 768px) {
-      .swiper-slide {
-        padding: 30px 20px;
-        justify-content: flex-start;
-        overflow-y: auto;
-      }
+      justify-content: center;
+      background:
+        linear-gradient(145deg, rgba(17, 24, 42, 0.92), rgba(9, 14, 26, 0.98));
     }
 
     .slide-content {
-      max-width: 1000px;
-      width: 100%;
+      width: min(1140px, 100%);
+      display: grid;
+      gap: 22px;
+    }
+
+    h1,
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
     }
 
     h1 {
-      font-weight: 700;
-      margin: 0 0 16px 0;
+      font-size: clamp(2.3rem, 4.9vw, 4rem);
       text-align: center;
-      font-size: 3em;
     }
 
     h2 {
-      margin: 0 0 24px 0;
-      font-weight: 600;
-      text-align: center;
-      font-size: 2.2em;
+      font-size: clamp(1.8rem, 3.8vw, 3rem);
     }
 
-    h3 {
-      font-size: 1.5em;
-      margin-bottom: 12px;
+    p,
+    li,
+    td,
+    th {
+      font-size: clamp(1rem, 1.6vw, 1.28rem);
+      line-height: 1.45;
+      color: var(--text);
     }
 
-    h4 {
-      font-size: 1.2em;
-      font-weight: 600;
-      margin: 8px 0;
-    }
-
-    p {
-      color: #222;
-      margin: 12px 0;
-      font-size: 20px;
-      line-height: 1.5;
-      text-align: center;
-    }
-
-    ul,
-    ol {
-      text-align: left;
-      display: inline-block;
-      max-width: 100%;
-    }
-
-    li {
-      color: #222;
-      margin: 10px 0;
-      font-size: 20px;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2em;
-        margin-bottom: 12px;
-      }
-
-      h2 {
-        font-size: 1.6em;
-        margin-bottom: 16px;
-      }
-
-      p {
-        font-size: 16px;
-      }
-
-      li {
-        font-size: 16px;
-        margin: 8px 0;
-      }
-    }
-
+    .deck-meta,
     .muted {
       color: var(--muted);
-      font-size: 20px;
     }
 
-    @media (max-width: 768px) {
-      .muted {
-        font-size: 16px;
-      }
-    }
-
-    .accent {
-      color: var(--accent)
+    .deck-meta {
+      text-align: center;
+      font-size: clamp(0.95rem, 1.35vw, 1.1rem);
     }
 
     .tagline {
-      font-size: 1.4em;
-      color: #333;
-      margin-bottom: 24px;
-      font-weight: 500;
-    }
-
-    .subtitle {
-      font-size: 1.1em;
-      color: var(--muted);
-    }
-
-    .cols {
-      display: flex;
-      gap: 32px;
-      justify-content: center;
-      align-items: flex-start;
-      width: 100%;
-      margin-top: 20px;
-    }
-
-    .col {
-      flex: 1;
-      text-align: left
-    }
-
-    @media (max-width: 768px) {
-      .cols {
-        flex-direction: column;
-        gap: 16px;
-      }
-    }
-
-    /* Timeline styles */
-    .timeline {
-      position: relative;
-      max-width: 900px;
+      font-size: clamp(1.2rem, 2.2vw, 1.85rem);
+      color: var(--accent);
+      text-align: center;
+      max-width: 920px;
       margin: 0 auto;
-      padding: 20px 0;
-      text-align: left;
+      font-weight: 700;
     }
 
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 30px;
-      top: 40px;
-      bottom: 40px;
-      width: 3px;
-      background: var(--accent);
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-left: 70px;
-      margin-bottom: 40px;
-    }
-
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .timeline-dot {
-      position: absolute;
-      left: 20px;
-      top: 8px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 3px solid white;
-      box-shadow: 0 0 0 3px var(--accent);
-      z-index: 2;
-    }
-
-    .timeline-content {
-      text-align: left;
-    }
-
-    .timeline-header {
-      display: flex;
-      justify-content: space-between;
+    .pill {
+      display: inline-flex;
       align-items: center;
-      margin-bottom: 12px;
+      gap: 10px;
+      width: fit-content;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(20, 31, 54, 0.7);
+      padding: 8px 14px;
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .kpi-grid,
+    .card-grid,
+    .pricing-grid,
+    .market-grid,
+    .fund-grid {
+      display: grid;
       gap: 16px;
     }
 
-    .timeline-header strong {
-      font-size: 22px;
-      color: #222;
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .bullet-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .bullet-list li {
+      background: rgba(26, 41, 71, 0.64);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .icon {
+      font-size: 1.35rem;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .note {
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(85, 217, 255, 0.45);
+      background: rgba(85, 217, 255, 0.14);
+      color: #d5f7ff;
       font-weight: 600;
     }
 
-    .timeline-time {
-      font-size: 18px;
+    .stat-card,
+    .panel-card,
+    .pricing-card,
+    .fund-card {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: linear-gradient(155deg, rgba(26, 41, 71, 0.85), rgba(17, 24, 42, 0.9));
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .stat-card strong {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem;
+      color: var(--accent-2);
+      margin-bottom: 6px;
+    }
+
+    .solution-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .solution-shot {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(17, 24, 42, 0.8);
+      padding: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .solution-shot img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .caption {
       color: var(--muted);
-      font-weight: 500;
-      white-space: nowrap;
+      font-size: 0.94rem;
+      margin-top: 8px;
+      text-align: center;
     }
 
-    .timeline-content ul {
-      margin: 12px 0 0 0;
-      padding-left: 20px;
+    .moat-table-wrap {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: var(--shadow);
     }
 
-    .timeline-content li {
-      margin: 8px 0;
-      font-size: 18px;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 768px) {
-      .timeline {
-        padding: 0;
-      }
-
-      .timeline::before {
-        left: 12px;
-        top: 10px;
-        bottom: 10px;
-        width: 2px;
-      }
-
-      .timeline-item {
-        padding-left: 40px;
-        margin-bottom: 24px;
-      }
-
-      .timeline-dot {
-        left: 5px;
-        top: 4px;
-        width: 14px;
-        height: 14px;
-        border: 2px solid white;
-        box-shadow: 0 0 0 2px var(--accent);
-      }
-
-      .timeline-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-        margin-bottom: 8px;
-      }
-
-      .timeline-header strong {
-        font-size: 17px;
-        line-height: 1.3;
-      }
-
-      .timeline-time {
-        font-size: 14px;
-      }
-
-      .timeline-content ul {
-        padding-left: 18px;
-        margin-top: 8px;
-      }
-
-      .timeline-content li {
-        font-size: 15px;
-        margin: 6px 0;
-      }
-    }
-
-    /* Mobile show/hide */
-    .mobile-show {
-      display: none;
-    }
-
-    .mobile-hide {
-      display: inline;
-    }
-
-    @media (max-width: 768px) {
-      .mobile-show {
-        display: inline;
-      }
-
-      .mobile-hide {
-        display: none;
-      }
-    }
-
-    /* Carousel */
-    .carousel {
-      position: relative;
+    .moat-table {
       width: 100%;
-      max-width: 900px;
-      margin: 20px auto;
-      overflow: hidden
-    }
-
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease-in-out
-    }
-
-    .carousel-item {
-      min-width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center
-    }
-
-    .carousel-item video {
-      width: 100%;
-      max-width: 800px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)
-    }
-
-    .carousel-caption {
-      margin-top: 12px;
-      font-size: 16px;
-      color: #222;
-      font-weight: 500;
-      text-align: center
-    }
-
-    .carousel-controls {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 12px
-    }
-
-    .carousel-btn {
-      padding: 10px 20px;
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: opacity 0.2s
-    }
-
-    .carousel-btn:hover {
-      opacity: 0.85
-    }
-
-    .carousel-indicators {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 12px
-    }
-
-    .carousel-indicator {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #ccc;
-      cursor: pointer;
-      transition: background 0.2s
-    }
-
-    .carousel-indicator.active {
-      background: var(--accent)
-    }
-
-    table {
-      font-size: 14px;
-      margin: 20px auto;
       border-collapse: collapse;
-      width: 100%;
-      max-width: 900px;
+      background: linear-gradient(180deg, rgba(26, 41, 71, 0.92), rgba(17, 24, 42, 0.93));
     }
 
-    table th,
-    table td {
-      padding: 10px 14px;
+    .moat-table thead {
+      background: rgba(85, 217, 255, 0.18);
+    }
+
+    .moat-table th,
+    .moat-table td {
+      padding: 14px 12px;
       text-align: left;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid rgba(134, 166, 230, 0.2);
+      font-size: clamp(0.92rem, 1.25vw, 1.08rem);
     }
 
-    table th {
-      font-weight: 600;
-      background: #f5f5f5;
-    }
-
-    @media (max-width: 768px) {
-      table {
-        font-size: 12px;
-      }
-
-      table th,
-      table td {
-        padding: 6px 8px;
-      }
-    }
-
-    /* Check/X marks for comparison table */
     .check {
-      color: var(--accent);
-      font-weight: bold;
+      color: var(--accent-2);
+      font-weight: 700;
     }
 
     .cross {
-      color: var(--muted);
-      font-weight: bold;
+      color: var(--danger);
+      font-weight: 700;
     }
 
-    /* Code block styling */
-    .code-block {
-      background: #1e1e1e;
-      color: #d4d4d4;
-      padding: 20px 24px;
-      border-radius: 8px;
-      text-align: left;
-      font-family: 'SF Mono', Monaco, 'Courier New', monospace;
-      font-size: 16px;
-      line-height: 1.6;
-      margin: 20px auto;
-      max-width: 800px;
+    .card-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .code-block .prompt {
-      color: #9cdcfe;
+    .card-grid h3,
+    .pricing-card h3,
+    .fund-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.03rem, 1.45vw, 1.28rem);
+      margin-bottom: 8px;
     }
 
-    .code-block .result {
-      color: #6a9955;
-      margin-top: 8px;
+    .kpi-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    /* Stat boxes */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin: 30px auto;
-      max-width: 900px;
-    }
-
-    .stat-box {
-      background: #f8f9fa;
-      padding: 24px;
-      border-radius: 12px;
+    .kpi {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 14px;
+      background: rgba(17, 24, 42, 0.8);
       text-align: center;
     }
 
-    .stat-box .number {
-      font-size: 2.5em;
-      font-weight: 700;
+    .kpi strong {
+      display: block;
+      color: var(--accent);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.2rem, 1.9vw, 1.7rem);
+      margin-bottom: 4px;
+    }
+
+    .market-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .pricing-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.55rem, 2.3vw, 2.2rem);
       color: var(--accent);
       margin-bottom: 8px;
     }
 
-    .stat-box .label {
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    @media (max-width: 768px) {
-      .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .stat-box .number {
-        font-size: 2em;
-      }
-    }
-
-    /* Steps */
-    .steps {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin: 30px auto;
-      max-width: 900px;
-    }
-
-    .step {
-      flex: 1;
-      text-align: center;
-    }
-
-    .step-number {
-      width: 48px;
-      height: 48px;
-      background: var(--accent);
-      color: white;
-      border-radius: 50%;
-      display: flex;
+    .founder-card {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 18px;
       align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: 600;
-      margin: 0 auto 12px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: linear-gradient(140deg, rgba(26, 41, 71, 0.88), rgba(9, 14, 26, 0.88));
+      padding: 18px;
+      box-shadow: var(--shadow);
     }
 
-    .step-title {
-      font-weight: 600;
-      font-size: 18px;
+    .founder-identity {
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid rgba(85, 217, 255, 0.4);
+      background: rgba(85, 217, 255, 0.08);
+    }
+
+    .founder-identity h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.2rem, 2vw, 1.8rem);
       margin-bottom: 8px;
     }
 
-    .step-desc {
-      font-size: 14px;
+    .mini-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-list li {
+      border-left: 3px solid rgba(111, 255, 176, 0.55);
+      padding-left: 10px;
+      color: var(--text);
+    }
+
+    .fund-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .slide-index {
+      position: fixed;
+      right: 20px;
+      top: 18px;
+      z-index: 30;
       color: var(--muted);
+      font-weight: 700;
+      background: rgba(20, 31, 54, 0.78);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.86rem;
     }
 
-    @media (max-width: 768px) {
-      .steps {
-        flex-direction: column;
-        gap: 24px;
-      }
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: var(--accent);
     }
 
-    /* Highlight box */
-    .highlight-box {
-      background: linear-gradient(135deg, #f0f7ff 0%, #e8f4f8 100%);
-      border-left: 4px solid var(--accent);
-      padding: 20px 24px;
-      border-radius: 0 8px 8px 0;
-      margin: 20px auto;
-      max-width: 800px;
-      text-align: left;
-    }
-
-    .highlight-box p {
-      text-align: left;
-      margin: 0;
-      font-size: 18px;
-    }
-
-    /* Quote */
-    .quote {
-      font-style: italic;
-      color: var(--muted);
-      font-size: 18px;
-      margin-top: 40px;
-    }
-
-    .quote-author {
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: 8px;
-    }
-
-    /* Swiper pagination */
     .swiper-pagination-bullet {
-      background: var(--accent);
-      opacity: 0.4;
+      background: rgba(166, 180, 210, 0.7);
+      opacity: 0.8;
     }
 
     .swiper-pagination-bullet-active {
-      opacity: 1;
+      background: var(--accent);
     }
 
-    .slide-number {
-      position: absolute;
-      bottom: 20px;
-      right: 30px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    @media (max-width: 768px) {
-      .slide-number {
-        bottom: 10px;
-        right: 15px;
-        font-size: 12px;
+    @media (max-width: 980px) {
+      body {
+        overflow: auto;
       }
-    }
 
-    /* Problem table */
-    .problem-table {
-      margin: 30px auto;
-    }
+      .swiper {
+        height: auto;
+        min-height: 100vh;
+      }
 
-    .problem-table td:first-child {
-      font-weight: 500;
-    }
+      .swiper-slide {
+        padding: 34px 20px 64px;
+        align-items: flex-start;
+        overflow-y: auto;
+      }
 
-    .problem-table td:last-child {
-      color: var(--muted);
-    }
+      .problem-grid,
+      .solution-layout,
+      .founder-card,
+      .market-grid,
+      .pricing-grid,
+      .card-grid,
+      .kpi-grid,
+      .fund-grid {
+        grid-template-columns: 1fr;
+      }
 
-    /* Example cards for solution slide */
-    .example-cards {
-      display: flex;
-      gap: 24px;
-      margin: 30px auto;
-      max-width: 900px;
-      justify-content: center;
-    }
-
-    .example-card {
-      flex: 1;
-      background: #f8f9fa;
-      border-radius: 12px;
-      padding: 24px;
-      text-align: center;
-    }
-
-    .example-input {
-      background: white;
-      border: 2px solid var(--accent);
-      border-radius: 8px;
-      padding: 16px;
-      font-size: 16px;
-      color: #333;
-      font-weight: 500;
-    }
-
-    .example-arrow {
-      font-size: 24px;
-      color: var(--accent);
-      margin: 12px 0;
-    }
-
-    .example-output {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    @media (max-width: 768px) {
-      .example-cards {
-        flex-direction: column;
+      .slide-content {
         gap: 16px;
       }
 
-      .example-input {
-        font-size: 14px;
-        padding: 12px;
+      .moat-table-wrap {
+        overflow-x: auto;
       }
-    }
 
-    /* Privacy features list */
-    .privacy-features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin: 30px auto;
-      max-width: 900px;
-      text-align: left;
-    }
-
-    .privacy-feature {
-      background: #f8f9fa;
-      padding: 20px;
-      border-radius: 12px;
-    }
-
-    .privacy-feature h4 {
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .privacy-feature p {
-      text-align: left;
-      font-size: 14px;
-      margin: 0;
-      color: var(--muted);
-    }
-
-    @media (max-width: 768px) {
-      .privacy-features {
-        grid-template-columns: 1fr;
+      .moat-table {
+        min-width: 620px;
       }
     }
   </style>
 </head>
 
 <body>
+  <div class="slide-index" id="slideIndex">1 / 10</div>
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
 
-      <!-- Slide 1: Title -->
-      <div class="swiper-slide">
+      <section class="swiper-slide">
         <div class="slide-content">
+          <span class="pill">Slide 1 · Cover</span>
           <h1>Vibe Browser</h1>
-          <p class="tagline">The AI Browser That Acts, Not Just Answers</p>
-          <p class="subtitle">While other AI browsers are stuck, Vibe keeps teams moving with model freedom, skills, and MCP interoperability</p>
-        </div>
-      </div>
-
-      <!-- Slide 2: The Problem -->
-      <div class="swiper-slide">
-        <div class="slide-content">
-          <h2>Other AI Browsers Are Stuck</h2>
-          <table class="problem-table">
-            <thead>
-              <tr>
-                <th>Where Other AI Browsers Are Stuck</th>
-                <th>Why Teams Lose</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Lock users to fixed model stacks</td>
-                <td>No freedom to switch to frontier models as they launch</td>
-              </tr>
-              <tr>
-                <td>Cloud-only inference</td>
-                <td>No self-hosted or local model path for privacy-critical workflows</td>
-              </tr>
-              <tr>
-                <td>One-off prompt execution</td>
-                <td>No reusable skills layer for repeatable automation at scale</td>
-              </tr>
-              <tr>
-                <td>Closed agent ecosystems</td>
-                <td>No MCP interoperability and no way to expose browser state as MCP</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="highlight-box">
-            <p><strong>Result:</strong> teams get stuck with automation theater, vendor lock-in, and weak privacy guarantees.</p>
-          </div>
-          <p class="muted">Vibe removes the stuck points: frontier model choice, self-hosted privacy, reusable skills, self-modifying agents, and MCP-native workflows.</p>
-        </div>
-      </div>
-
-      <!-- Slide 3: The Solution -->
-      <div class="swiper-slide">
-        <div class="slide-content">
-          <h2>The Solution</h2>
-          <p><strong>Vibe = Your autonomous browser co-pilot</strong></p>
-          <p>Tell it what you need. It executes.</p>
-          <p class="muted">Control modes: local co-pilot, cloud-agent orchestration, or self-hosted OpenClaw control through MCP.</p>
-          <p class="muted">Choose frontier or self-hosted models, automate with reusable skills, integrate Gmail + Calendar, and connect through MCP.</p>
-          <div class="example-cards">
-            <div class="example-card">
-              <div class="example-input">"Find 10 SaaS companies hiring engineers in Seattle"</div>
-              <div class="example-arrow">↓</div>
-              <div class="example-output">Vibe researches, filters, compiles a spreadsheet. You review.</div>
-            </div>
-            <div class="example-card">
-              <div class="example-input">"Book the cheapest direct flight to NYC next Friday"</div>
-              <div class="example-arrow">↓</div>
-              <div class="example-output">Vibe compares airlines, finds best option, gets to checkout. You confirm.</div>
-            </div>
-          </div>
-          <p><strong>One command → Complete results</strong></p>
-        </div>
-      </div>
-
-      <!-- Slide 4: How It Works -->
-      <div class="swiper-slide">
-        <div class="slide-content">
-          <h2>How It Works</h2>
-          <div class="steps">
-            <div class="step">
-              <div class="step-number">1</div>
-              <div class="step-title">Describe</div>
-              <div class="step-desc">Natural language task description</div>
-            </div>
-            <div class="step">
-              <div class="step-number">2</div>
-              <div class="step-title">Observe</div>
-              <div class="step-desc">Vibe navigates, researches, compares across sites</div>
-            </div>
-            <div class="step">
-              <div class="step-number">3</div>
-              <div class="step-title">Review</div>
-              <div class="step-desc">Get complete results, confirm critical actions</div>
-            </div>
-          </div>
-          <div class="highlight-box">
-            <p><strong>Plan -> Execute -> Reflect -> Self-Modify</strong><br>OpenClaw-inspired agent loop that can improve its own skills and workflow quality.</p>
+          <p class="tagline">The AI copilot that runs in your browser, locally, privately, on any model.</p>
+          <p class="deck-meta">Dennis Vashchuk · Technical Co-Founder · March 2026</p>
+          <div class="kpi-grid">
+            <div class="kpi"><strong>Local</strong><span class="muted">Private-by-default execution</span></div>
+            <div class="kpi"><strong>Any Model</strong><span class="muted">Frontier + self-hosted choice</span></div>
+            <div class="kpi"><strong>Any Site</strong><span class="muted">No API integrations required</span></div>
+            <div class="kpi"><strong>Agentic</strong><span class="muted">Skills + browser actions</span></div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Slide 5: Why Now -->
-      <div class="swiper-slide">
+      <section class="swiper-slide">
         <div class="slide-content">
-          <h2>Why Now?</h2>
-          <ul>
-            <li><strong>LLMs matured</strong> — Opus 4.5 and GPT-5.2 just need good "hands" like Vibe to do the routine job for humans</li>
-            <li><strong>LLM costs dropped 10x</strong> — Cloud AI now viable for consumer tools</li>
-            <li><strong>Remote work demand</strong> — Professionals need automation at scale</li>
-            <li><strong>Chrome's Built-in AI</strong> — Gemini Nano enables 100% local, private processing</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Slide 6: Privacy & Technical Edge -->
-      <div class="swiper-slide">
-        <div class="slide-content">
-          <h2>Privacy-First Architecture</h2>
-          <div class="privacy-features">
-            <div class="privacy-feature">
-              <h4>Local AI with Gemini Nano</h4>
-              <p>Runs 100% on-device in Chrome. Your data never leaves your browser. Works offline.</p>
-            </div>
-            <div class="privacy-feature">
-              <h4>TEE/Confidential Computing</h4>
-              <p>Cloud option uses Trusted Execution Environments. Cryptographic proof your data isn't logged or stored.</p>
-            </div>
-            <div class="privacy-feature">
-              <h4>Frontier + Self-Hosted Models</h4>
-              <p>Choose OpenAI, Claude, Gemini, Grok, DeepSeek, or self-hosted endpoints. Full control over privacy and model quality.</p>
+          <span class="pill">Slide 2 · Problem</span>
+          <h2>Professionals waste hours on repetitive browser tasks every day</h2>
+          <div class="problem-grid">
+            <ul class="bullet-list">
+              <li><span class="icon">🧾</span><span>Tax advisors manually download and file 1099 documents across portals.</span></li>
+              <li><span class="icon">⚖️</span><span>Lawyers run repetitive case-database searches and copy findings by hand.</span></li>
+              <li><span class="icon">🎯</span><span>Recruiters source and qualify candidates on LinkedIn tab by tab.</span></li>
+            </ul>
+            <div class="stat-card">
+              <strong>2-4 hrs/day</strong>
+              <p class="muted">Average repetitive browser work per professional team member.</p>
             </div>
           </div>
-          <div class="highlight-box">
-            <p><strong>Enterprise Edition:</strong> <a href="https://enterprise.vibebrowser.app" style="color: var(--accent);">enterprise.vibebrowser.app</a> — SOC2 compliant, on-premise deployment, FINRA-ready for financial professionals.</p>
-          </div>
-          <p class="muted">Unlike competitors who collect and monetize your browsing data, Vibe is built on privacy by design.</p>
+          <p class="note">It's all manual. It all happens in a browser. Nothing automates it well.</p>
         </div>
-      </div>
+      </section>
 
-      <!-- Slide 7: Why Vibe Wins -->
-      <div class="swiper-slide">
+      <section class="swiper-slide">
         <div class="slide-content">
-          <h2>Why Vibe Wins</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Feature</th>
-                <th>Vibe</th>
-                <th>OpenAI Operator</th>
-                <th>Perplexity Comet</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Local/Private AI</td>
-                <td class="check">Gemini Nano</td>
-                <td class="cross">Cloud only</td>
-                <td class="cross">Cloud only</td>
-              </tr>
-              <tr>
-                <td>Model Choice</td>
-                <td class="check">Any (BYOM)</td>
-                <td class="cross">OpenAI only</td>
-                <td class="cross">Perplexity only</td>
-              </tr>
-              <tr>
-                <td>Automation Skills</td>
-                <td class="check">Reusable + shareable</td>
-                <td class="cross">Prompt-level only</td>
-                <td class="cross">Prompt-level only</td>
-              </tr>
-              <tr>
-                <td>Self-Modifying Agent</td>
-                <td class="check">OpenClaw-inspired</td>
-                <td class="cross">No</td>
-                <td class="cross">No</td>
-              </tr>
-              <tr>
-                <td>Gmail + Calendar Integration</td>
-                <td class="check">Native tools</td>
-                <td class="cross">Limited</td>
-                <td class="cross">Limited</td>
-              </tr>
-              <tr>
-                <td>MCP Client + Browser as MCP Server</td>
-                <td class="check">Yes</td>
-                <td class="cross">No</td>
-                <td class="cross">No</td>
-              </tr>
-              <tr>
-                <td>Cloud Agent + Self-Hosted OpenClaw Control</td>
-                <td class="check">Yes</td>
-                <td class="cross">No public docs</td>
-                <td class="cross">No public docs</td>
-              </tr>
-              <tr>
-                <td>Multi-Tab Agent</td>
-                <td class="check">Full support</td>
-                <td class="cross">Single browser</td>
-                <td class="cross">Single browser</td>
-              </tr>
-              <tr>
-                <td>Works as Extension</td>
-                <td class="check">Any Chrome</td>
-                <td class="cross">Fork only</td>
-                <td class="cross">Fork only</td>
-              </tr>
-              <tr>
-                <td>TEE/Confidential Compute</td>
-                <td class="check">Roadmap</td>
-                <td class="cross">No</td>
-                <td class="cross">No</td>
-              </tr>
-              <tr>
-                <td>Agent Profiles</td>
-                <td class="check">Roadmap</td>
-                <td class="cross">No</td>
-                <td class="cross">No</td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="muted" style="margin-top: 20px;">The only agentic browser with model freedom, self-hosted privacy, skill automation, and MCP-native interoperability.</p>
-          <p class="muted">We benchmark this stack against Strawberry and OpenClaw workflows in our product comparison and roadmap narrative.</p>
-        </div>
-      </div>
-
-      <!-- Slide 8: Market Opportunity -->
-      <div class="swiper-slide">
-        <div class="slide-content">
-          <h2>Market Opportunity</h2>
-          <div class="stats-grid">
-            <div class="stat-box">
-              <div class="number">$4.2B</div>
-              <div class="label">Browser automation tools (2025)</div>
+          <span class="pill">Slide 3 · Solution</span>
+          <h2>Vibe executes tasks in your browser, not just answers questions</h2>
+          <div class="solution-layout">
+            <div class="panel-card">
+              <p>AI copilot that clicks, reads, fills forms, sends emails, and manages calendar workflows.</p>
+              <p class="muted">Input in plain English or voice. Review critical actions before final send.</p>
+              <ul class="mini-list" style="margin-top: 12px;">
+                <li>Automates website workflows end-to-end</li>
+                <li>Runs on local or selected cloud model</li>
+                <li>Supports Gmail and Google Calendar actions</li>
+              </ul>
             </div>
-            <div class="stat-box">
-              <div class="number">$12.7B</div>
-              <div class="label">AI productivity assistants (2025)</div>
-            </div>
-            <div class="stat-box">
-              <div class="number">$3.8B</div>
-              <div class="label">Sales intelligence tools (2025)</div>
+            <div class="solution-shot">
+              <img src="assets/vibe-browser-screenshot.png" alt="Vibe Browser sidebar screenshot">
+              <p class="caption">Product screenshot: Vibe sidebar running a browser workflow in real time.</p>
             </div>
           </div>
-          <p><strong>Target users:</strong> Sales teams, recruiters, researchers, data teams</p>
-          <p class="muted">ICP: Professionals doing 2+ hours/day of repetitive browser work</p>
         </div>
-      </div>
+      </section>
 
-      <!-- Slide 9: Traction -->
-      <div class="swiper-slide">
+      <section class="swiper-slide">
         <div class="slide-content">
+          <span class="pill">Slide 4 · Competitive Moat</span>
+          <h2>Why We're Different</h2>
+          <div class="moat-table-wrap">
+            <table class="moat-table">
+              <thead>
+                <tr>
+                  <th>Capability</th>
+                  <th>Vibe</th>
+                  <th>Comet / Perplexity</th>
+                  <th>OpenAI Atlas</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Local execution</td>
+                  <td class="check">Yes</td>
+                  <td class="cross">No</td>
+                  <td class="cross">No</td>
+                </tr>
+                <tr>
+                  <td>Choose your model</td>
+                  <td class="check">Yes</td>
+                  <td class="cross">No</td>
+                  <td class="cross">No</td>
+                </tr>
+                <tr>
+                  <td>Custom skills and workflows</td>
+                  <td class="check">Yes</td>
+                  <td class="cross">No</td>
+                  <td class="cross">No</td>
+                </tr>
+                <tr>
+                  <td>Privacy, no cloud data</td>
+                  <td class="check">Yes</td>
+                  <td class="cross">No</td>
+                  <td class="cross">No</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">We're the only browser AI built for privacy-sensitive professionals.</p>
+        </div>
+      </section>
+
+      <section class="swiper-slide">
+        <div class="slide-content">
+          <span class="pill">Slide 5 · Custom Skills</span>
+          <h2>Define a workflow once. Vibe repeats it perfectly every time.</h2>
+          <div class="card-grid">
+            <article class="panel-card">
+              <h3>Tax Form Download</h3>
+              <p class="muted">Login, navigate provider portals, download 1099 packets, and file to client folder.</p>
+            </article>
+            <article class="panel-card">
+              <h3>LinkedIn Outreach</h3>
+              <p class="muted">Find matching profiles, personalize intro lines, queue compliant outreach drafts.</p>
+            </article>
+            <article class="panel-card">
+              <h3>Calendar Management</h3>
+              <p class="muted">Resolve conflicts, send reschedules, and auto-prepare meeting briefs from inbox context.</p>
+            </article>
+          </div>
+          <p class="note">No other browser AI has this.</p>
+        </div>
+      </section>
+
+      <section class="swiper-slide">
+        <div class="slide-content">
+          <span class="pill">Slide 6 · Traction</span>
           <h2>Traction</h2>
-          <ul>
-            <li>Live product with working demos</li>
-            <li>Waitlist active at vibebrowser.app: <strong>~300 users</strong> waiting</li>
-            <li>4 demo workflows: LinkedIn, Gmail, Calendar, Research</li>
-            <li>Chrome extension architecture (no separate browser needed)</li>
-          </ul>
+          <div class="kpi-grid">
+            <div class="kpi"><strong>Live</strong><span class="muted">Chrome Web Store availability</span></div>
+            <div class="kpi"><strong>200</strong><span class="muted">Early-access users</span></div>
+            <div class="kpi"><strong>Organic</strong><span class="muted">Zero paid acquisition spend</span></div>
+            <div class="kpi"><strong>Bootstrapped</strong><span class="muted">Built from founder capital</span></div>
+          </div>
+          <p class="muted">If needed in diligence: session, task-completion, and retention cohorts available in product analytics.</p>
         </div>
-      </div>
+      </section>
 
-      <!-- Slide 10: Demos -->
-      <div class="swiper-slide">
+      <section class="swiper-slide">
         <div class="slide-content">
-          <h2>See It In Action</h2>
-          <p>Watch demo videos of Vibe automating real workflows:</p>
-          <ul>
-            <li>Stock Market Research</li>
-            <li>Google Calendar Management</li>
-            <li>LinkedIn Outreach</li>
-            <li>Travel Booking</li>
-            <li>Social Media Marketing (Twitter, Instagram)</li>
-            <li>GitHub Pull Request Review</li>
-          </ul>
-          <p style="margin-top: 30px;"><a href="https://vibebrowser.app" style="font-size: 24px; font-weight: 600; color: var(--accent);">vibebrowser.app</a></p>
+          <span class="pill">Slide 7 · Market</span>
+          <h2>Market: privacy-sensitive professionals are an underserved wedge</h2>
+          <div class="market-grid">
+            <div class="panel-card">
+              <ul class="mini-list">
+                <li>Primary verticals: legal, financial, tax, recruiting</li>
+                <li>Compliance pressure blocks cloud-only copilots</li>
+                <li>Workflows are browser-native and highly repetitive</li>
+              </ul>
+            </div>
+            <div class="panel-card">
+              <p class="price">70M+</p>
+              <p class="muted">Knowledge workers globally who handle regulated or sensitive data in browser workflows.</p>
+              <p class="muted" style="margin-top: 10px;">Comet, Atlas, and Operator are not targeting this local-first segment.</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Slide 11: Business Model -->
-      <div class="swiper-slide">
+      <section class="swiper-slide">
         <div class="slide-content">
+          <span class="pill">Slide 8 · Business Model</span>
           <h2>Business Model</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Tier</th>
-                <th>Price</th>
-                <th>Includes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Free</strong></td>
-                <td>$0</td>
-                <td>Gemini Nano (local) or self-hosted models</td>
-              </tr>
-              <tr>
-                <td><strong>Pro</strong></td>
-                <td>$20/mo</td>
-                <td>Cloud AI (OpenAI GPT, Claude, Gemini, Grok) — 1,000 queries</td>
-              </tr>
-              <tr>
-                <td><strong>Enterprise</strong></td>
-                <td>$49+/mo</td>
-                <td>Self-hosted models, audit logging, SOC2/FINRA compliance</td>
-              </tr>
-              <tr>
-                <td><strong>Usage</strong></td>
-                <td>+$3/1M</td>
-                <td>Additional tokens</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="highlight-box">
-            <p><strong>Unit economics:</strong> Cloud AI cost ~$0.01/query, 3x+ margin on Pro tier</p>
+          <div class="pricing-grid">
+            <article class="pricing-card">
+              <h3>Free</h3>
+              <p class="price">$0</p>
+              <p class="muted">Limited usage for individual evaluation and onboarding.</p>
+            </article>
+            <article class="pricing-card">
+              <h3>Pro</h3>
+              <p class="price">$25/mo</p>
+              <p class="muted">BYOK access with advanced skill automation and professional workflows.</p>
+            </article>
+            <article class="pricing-card">
+              <h3>Premium</h3>
+              <p class="price">$100/mo</p>
+              <p class="muted">Bundled credits, all supported models, and higher automation limits.</p>
+            </article>
+          </div>
+          <p class="note">Enterprise and team plans are the next expansion layer.</p>
+        </div>
+      </section>
+
+      <section class="swiper-slide">
+        <div class="slide-content">
+          <span class="pill">Slide 9 · Founder</span>
+          <h2>Founder</h2>
+          <div class="founder-card">
+            <div class="founder-identity">
+              <h3>Dennis Vashchuk</h3>
+              <p class="muted">Technical Co-Founder</p>
+              <p style="margin-top: 10px;">"I built systems that run reliably under pressure. This isn't a wrapper."</p>
+            </div>
+            <ul class="mini-list">
+              <li>Coinbase: built validator infrastructure for 30+ protocols and worked on the core exchange matching engine.</li>
+              <li>Coverage included Solana, Ethereum, Cosmos, and large-scale production reliability.</li>
+              <li>Twingate and BitTorrent: P2P and VPN protocol engineering.</li>
+              <li>MS in Computer Science.</li>
+            </ul>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Slide 12: Roadmap -->
-      <div class="swiper-slide">
+      <section class="swiper-slide">
         <div class="slide-content">
-          <h2>Roadmap</h2>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <div class="timeline-header">
-                  <strong>Now</strong>
-                </div>
-                <ul>
-                  <li>Chrome extension beta, 4 core workflows</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <div class="timeline-header">
-                  <strong>Next</strong>
-                </div>
-                <ul>
-                  <li>Workflow templates, multi-tab orchestration</li>
-                  <li>Agent Profiles — personalized prompts for engineers, PMs, sales, recruiters</li>
-                  <li>Cloud agent relay with self-hosted OpenClaw bridge</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <div class="timeline-header">
-                  <strong>Then</strong>
-                </div>
-                <ul>
-                  <li>API for developers, team collaboration</li>
-                  <li>Cloud-hosted OpenClaw personal assistant connected to your local Vibe browser</li>
-                  <li>Voice interface / interaction</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <div class="timeline-header">
-                  <strong>Future</strong>
-                </div>
-                <ul>
-                  <li>Enterprise SSO, audit logs, custom models</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 13: Founder -->
-      <div class="swiper-slide">
-        <div class="slide-content">
-          <h2>Founder Story</h2>
-          <p>"I'm Danny. I left Coinbase, where I built infrastructure for 30+ blockchain protocols, to solve a problem I had every single day: spending hours doing repetitive stuff in my browser.</p>
-          <p>Every professional I know does the same thing. Lawyers searching case databases. Recruiters sourcing candidates on LinkedIn. Financial advisors pulling data from Morningstar into Schwab. It's all manual, it's all slow, and it all happens in a browser.</p>
-          <p>Vibe is an AI copilot that lives in your browser and actually <em>does</em> those tasks for you. Not just answers questions. Clicks, reads, fills forms, sends emails, manages your calendar. You describe what you need in plain English, it executes.</p>
-          <p>What makes us different from Comet or Operator? Three things. First, you choose your model. Codex with high reasoning effort completes tasks that GPT-4 gives up on halfway. Second, everything runs locally. Your data never leaves your device. That matters a lot to lawyers, advisors, anyone handling sensitive data. Third, no APIs, no brittle automations. It works on any website.</p>
-          <p>We're live on the Chrome Web Store. We have paying users across recruiters, financial advisors, and legal teams. I built this bootstrapped, from my own pocket, because I believed in it enough to leave a senior role at Coinbase.</p>
-          <p>We're raising pre-seed to go deeper on the professional use cases where we're already seeing pull, and to accelerate Chrome integration. 500 is the right partner to help us find and nail that wedge."</p>
-          <p style="margin-top: 24px;"><a href="https://linkedin.com/in/dzianisv">linkedin.com/in/dzianisv</a></p>
-        </div>
-      </div>
-
-      <!-- Slide 14: The Ask -->
-      <div class="swiper-slide">
-        <div class="slide-content">
+          <span class="pill">Slide 10 · The Ask</span>
           <h2>The Ask</h2>
-          <p><strong>Raising:</strong> Pre-seed</p>
-          <h3 style="margin-top: 30px;">Use of Funds</h3>
-          <ul>
-            <li><strong>60%</strong> — Engineering (agent reliability, model optimization)</li>
-            <li><strong>25%</strong> — Growth (developer community, early adopters)</li>
-            <li><strong>15%</strong> — Operations</li>
-          </ul>
+          <div class="fund-grid">
+            <article class="fund-card">
+              <h3>Raise</h3>
+              <p class="price">$2M</p>
+              <p class="muted">Pre-seed round.</p>
+            </article>
+            <article class="fund-card">
+              <h3>Use of Funds</h3>
+              <p class="muted">Product: Chrome integration and model optimization.</p>
+              <p class="muted">GTM: focused professional vertical motion.</p>
+              <p class="muted">Team: first strategic hires.</p>
+            </article>
+            <article class="fund-card">
+              <h3>Close & Contact</h3>
+              <p class="muted">Target close: September 2026.</p>
+              <div class="contact-row" style="margin-top: 8px;">
+                <a href="mailto:info@vibebrowser.app">info@vibebrowser.app</a>
+                <a href="https://calendly.com/dzianisv/30min">calendly.com/dzianisv/30min</a>
+              </div>
+            </article>
+          </div>
         </div>
-      </div>
-
-      <!-- Slide 15: Why Back Us -->
-      <div class="swiper-slide">
-        <div class="slide-content">
-          <h2>Why Back Us</h2>
-          <ul>
-            <li><strong>Technical depth</strong> — Team built production browser infra at scale</li>
-            <li><strong>Privacy moat</strong> — Only player with true local AI option</li>
-            <li><strong>Platform play</strong> — Extension model = instant distribution</li>
-            <li><strong>Timing</strong> — Chrome AI APIs just launched; first mover advantage</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Slide 16: Contact -->
-      <div class="swiper-slide">
-        <div class="slide-content">
-          <h2>Let's Talk</h2>
-          <p><strong>Vibe AI Browser Co-Pilot</strong></p>
-          <ol>
-            <li><a href="https://vibebrowser.app">vibebrowser.app</a> — Consumer</li>
-            <li><a href="https://enterprise.vibebrowser.app">enterprise.vibebrowser.app</a> — Private Enterprise</li>
-            <li><a href="mailto:info@vibebrowser.app">info@vibebrowser.app</a></li>
-            <li><a href="https://linkedin.com/company/vibebrowser">linkedin.com/company/vibebrowser</a></li>
-            <li><a href="https://x.com/vibebrowserapp">x.com/vibebrowserapp</a></li>
-            <li><a href="https://calendly.com/dzianisv/30min">Schedule a call — calendly.com/dzianisv/30min</a></li>
-          </ol>
-          <p class="quote">"The future is already here — it's just not evenly distributed."</p>
-          <p class="quote-author">— William Gibson</p>
-        </div>
-      </div>
+      </section>
 
     </div>
     <div class="swiper-pagination"></div>
@@ -1151,62 +662,22 @@
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
+    const slideIndex = document.getElementById('slideIndex');
     const swiper = new Swiper('.mySwiper', {
-      direction: 'horizontal',
       loop: false,
-      keyboard: {
-        enabled: true,
-      },
-      mousewheel: false,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      hashNavigation: {
-        watchState: true,
-      },
-    });
-
-    // Carousel functionality for demo videos
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-item');
-    const indicators = document.querySelectorAll('.carousel-indicator');
-    const carouselInner = document.querySelector('.carousel-inner');
-
-    function updateCarousel() {
-      if (carouselInner) {
-        carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-        // Pause all videos
-        document.querySelectorAll('.carousel-item video').forEach(video => {
-          video.pause();
-        });
-
-        // Update indicators
-        indicators.forEach((indicator, index) => {
-          indicator.classList.toggle('active', index === currentSlide);
-        });
+      speed: 500,
+      keyboard: { enabled: true },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      on: {
+        init: function () {
+          slideIndex.textContent = `${this.realIndex + 1} / ${this.slides.length}`;
+        },
+        slideChange: function () {
+          slideIndex.textContent = `${this.realIndex + 1} / ${this.slides.length}`;
+        }
       }
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      updateCarousel();
-    }
-
-    function previousSlide() {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      updateCarousel();
-    }
-
-    function goToSlide(index) {
-      currentSlide = index;
-      updateCarousel();
-    }
+    });
   </script>
 </body>
 
