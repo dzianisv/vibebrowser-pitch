@@ -626,6 +626,29 @@
       color: var(--muted);
     }
 
+    .stuck-list {
+      margin-top: 8px;
+      padding-left: 20px;
+    }
+
+    .stuck-list li {
+      font-size: 18px;
+      line-height: 1.45;
+      margin: 8px 0;
+    }
+
+    .proof-image {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #d8dbe0;
+    }
+
+    @media (max-width: 768px) {
+      .stuck-list li {
+        font-size: 15px;
+      }
+    }
+
     /* Example cards for solution slide */
     .example-cards {
       display: flex;
@@ -729,14 +752,29 @@
       <!-- Slide 2: Problem -->
       <div class="swiper-slide">
         <div class="slide-content">
-          <h2>Professionals waste hours on repetitive browser tasks every day</h2>
-          <ul>
-            <li>🧾 Tax advisors manually downloading 1099 files across multiple portals</li>
-            <li>⚖️ Lawyers searching case databases and copying results by hand</li>
-            <li>🎯 Recruiters sourcing candidates one-by-one on LinkedIn</li>
-          </ul>
-          <div class="highlight-box">
-            <p>It's all manual. It all happens in a browser. Nothing automates it well.</p>
+          <h2>Repetitive browser workflows still break most AI copilots</h2>
+          <div class="cols">
+            <div class="col">
+              <ul>
+                <li>🧾 Tax advisors manually downloading 1099 files across multiple portals</li>
+                <li>⚖️ Lawyers searching case databases and copying results by hand</li>
+                <li>🎯 Recruiters sourcing candidates one-by-one on LinkedIn</li>
+              </ul>
+              <div class="highlight-box">
+                <p>It's all manual. It all happens in a browser. Existing copilots still fail too often on real workflows.</p>
+              </div>
+              <h3>Why current AI browsers get stuck</h3>
+              <ul class="stuck-list">
+                <li>Locked model stacks with limited user model choice</li>
+                <li>Screenshot/accessibility-tree loops that can overwhelm context on dense pages</li>
+                <li>No reusable skills layer for routine end-to-end workflows</li>
+              </ul>
+            </div>
+            <div class="col">
+              <img src="assets/facebook-marketplace-demo.jpg" alt="Facebook Marketplace navigation screenshot captured via Chrome DevTools MCP" class="proof-image">
+              <p class="muted">Proof surface: Facebook Marketplace navigation captured via Chrome DevTools MCP.</p>
+              <p class="muted">Dense UIs like this expose why context-heavy browser loops get brittle fast.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -764,7 +802,7 @@
       <!-- Slide 4: Competitive Moat -->
       <div class="swiper-slide">
         <div class="slide-content">
-          <h2>Why We're Different</h2>
+          <h2>Current AI browsers are stuck. Vibe is not.</h2>
           <table>
             <thead>
               <tr>
@@ -782,13 +820,13 @@
                 <td class="cross">No</td>
               </tr>
               <tr>
-                <td>Choose your model</td>
+                <td>Choose frontier model (switch anytime)</td>
                 <td class="check">Yes</td>
                 <td class="cross">No</td>
                 <td class="cross">No</td>
               </tr>
               <tr>
-                <td>Custom skills / workflows</td>
+                <td>Reusable skills / workflow templates</td>
                 <td class="check">Yes</td>
                 <td class="cross">No</td>
                 <td class="cross">No</td>
@@ -801,7 +839,7 @@
               </tr>
             </tbody>
           </table>
-          <p class="muted" style="margin-top: 18px;">We're the only browser AI built for privacy-sensitive professionals.</p>
+          <p class="muted" style="margin-top: 18px;">Privacy-focused professionals are our initial wedge, but the product is built for any team with repetitive browser workflows.</p>
         </div>
       </div>
 
