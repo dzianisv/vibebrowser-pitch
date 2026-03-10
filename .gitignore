@@ -1,5 +1,6 @@
 # Local Netlify folder
 node_modules/
 *.pdf
+!pitchdeck-v1.1.pdf
 .netlify
 .vercel
