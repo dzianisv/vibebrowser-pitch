@@ -471,6 +471,11 @@
       max-width: 900px;
     }
 
+    .stats-grid.single {
+      grid-template-columns: minmax(280px, 420px);
+      justify-content: center;
+    }
+
     .stat-box {
       background: #f8f9fa;
       padding: 24px;
@@ -494,6 +499,10 @@
       .stats-grid {
         grid-template-columns: 1fr;
         gap: 16px;
+      }
+
+      .stats-grid.single {
+        max-width: 420px;
       }
 
       .stat-box .number {
@@ -838,12 +847,12 @@
       <div class="swiper-slide">
         <div class="slide-content">
           <h2>Market</h2>
-          <p><strong>Target:</strong> Privacy-sensitive professionals in legal, financial, tax, and recruiting.</p>
+          <p><strong>Target:</strong> Privacy-focused professionals first (legal, financial, tax, recruiting), then broader knowledge workers with repetitive browser workflows.</p>
           <p><strong>Primary buyer:</strong> Managing partner, operations lead, or workflow owner.</p>
-          <div class="stats-grid">
+          <div class="stats-grid single">
             <div class="stat-box">
               <div class="number">70M+</div>
-              <div class="label">Knowledge workers who cannot rely on cloud AI for compliance/privacy reasons</div>
+              <div class="label">Knowledge workers with repetitive browser workflows, with privacy-sensitive teams as the initial wedge</div>
             </div>
           </div>
           <p class="muted">This local-first segment is underserved and not the focus of Comet, Atlas, or Operator.</p>
