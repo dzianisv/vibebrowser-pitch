@@ -89,7 +89,30 @@ const fs = require('fs');
       }
       
       if (!activeSlide) return { html: '<p>ERROR: No slide found</p>', index: -1 };
-      
+
+      // Convert images to base64 to ensure they render in PDF
+      const images = activeSlide.querySelectorAll('img');
+      for (const img of images) {
+        try {
+          // Make sure image is loaded
+          if (img.complete && img.naturalHeight !== 0) {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.naturalWidth;
+            canvas.height = img.naturalHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            img.src = canvas.toDataURL('image/png');
+          } else {
+             // Fallback to absolute path if not loaded
+             if (img.src) img.setAttribute('src', img.src);
+          }
+        } catch (e) {
+            console.error('Failed to convert image to base64:', e);
+            // Fallback to absolute path if conversion fails
+             if (img.src) img.setAttribute('src', img.src);
+        }
+      }
+
       const content = activeSlide.querySelector('.slide-content');
       const html = content ? content.innerHTML : activeSlide.innerHTML;
       
